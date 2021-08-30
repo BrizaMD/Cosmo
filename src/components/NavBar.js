@@ -21,7 +21,7 @@ const NavBar = () => {
 
     useEffect(() => {
         showButton()
-    }, []) // ha változik a mérete nem ugrik random elő a gomb/tűínik el
+    }, []) // ha változik a mérete nem ugrik random elő a gomb/tűnik el
 
 
     window.addEventListener('resize', showButton);
@@ -29,13 +29,14 @@ const NavBar = () => {
 
         <NavBarStyle>
             <NavBarContainer>
-
                 <div  className='menu-icon' onClick={handleClick}>
                     <i className={ click ? 'fas fa-times' : 'fas fa-bars'}/>
                 </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                <NavItem>
-                   <Link to="/"  onClick={closeMobileMenu}  className='nav-links'> <i className="fas fa-home"></i></Link>
+                   <Link to="/"  onClick={closeMobileMenu}  className='nav-links'>
+                       <i className="fas fa-home"></i>
+                   </Link>
                </NavItem>
                 <NavItem>
                     <Link to="/zodiac"  onClick={closeMobileMenu}  className='nav-links'>Zodiac Signs</Link>
@@ -49,7 +50,7 @@ const NavBar = () => {
 
             </ul>
                 <NavItem>
-                    <button value="Theme Switcher" onClick={closeMobileMenu} >Theme</button>
+                    <Button value="Theme Switcher" onClick={closeMobileMenu} >Theme</Button>
                 </NavItem>
             </NavBarContainer>
         </NavBarStyle>
@@ -60,7 +61,27 @@ const NavBar = () => {
 export default NavBar;
 
 const NavItem= styled.div`
-  height: 30px;
+  height: 50px;
+
+`;
+
+
+
+const Button= styled.div`
+  padding: 8px 20px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.3s ease-out;
+  border: 1px solid white;
+  :hover{
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
+  }
 
 `;
 
@@ -74,8 +95,8 @@ const NavBarContainer = styled.div`
 `;
 
 const NavBarStyle = styled.div`
-  //background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-  background:#d585d2;
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  //background:#d585d2;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -84,13 +105,5 @@ const NavBarStyle = styled.div`
   position: sticky;
   top: 0;
   z-index: 999;
-
-    
-    // a {
-      //   color: ${(props) => props.theme.linkColor};
-    //   :hover {
-      //     color: ${(props) => props.theme.linkHover};
-    //   }
-    // }
   }
 `;
