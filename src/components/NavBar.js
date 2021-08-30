@@ -2,6 +2,9 @@ import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import './Navbar.css';
+import Logo from '../static/img/Dream-Team-Logo.png';
+
+
 
 const NavBar = () => {
     const [click, setClick] = useState(false);
@@ -28,7 +31,9 @@ const NavBar = () => {
     return(
 
         <NavBarStyle>
+
             <NavBarContainer>
+
                 <div  className='menu-icon' onClick={handleClick}>
                     <i className={ click ? 'fas fa-times' : 'fas fa-bars'}/>
                 </div>
@@ -50,7 +55,7 @@ const NavBar = () => {
 
             </ul>
                 <NavItem>
-                    <Button value="Theme Switcher" onClick={closeMobileMenu} >Theme</Button>
+                    {button && <Button value="Theme Switcher" onClick={closeMobileMenu} >Change Theme</Button>}
                 </NavItem>
             </NavBarContainer>
         </NavBarStyle>
@@ -91,11 +96,12 @@ const NavBarContainer = styled.div`
   align-items: center;
   height: 80px;
   max-width: 1500px;
+  margin-left: 500px;
 
 `;
 
 const NavBarStyle = styled.div`
-  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  background: linear-gradient(90deg, rgb(255,255,255) 0%, rgb(26, 23, 23) 100%);
   //background:#d585d2;
   height: 80px;
   display: flex;
@@ -105,5 +111,20 @@ const NavBarStyle = styled.div`
   position: sticky;
   top: 0;
   z-index: 999;
+  
+`;
+
+
+const NavbarLogo= styled.div`
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  img{
+    width: 16%;
+    
   }
 `;
