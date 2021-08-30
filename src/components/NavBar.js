@@ -2,8 +2,6 @@ import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import './Navbar.css';
-import Logo from '../static/img/Dream-Team-Logo.png';
-
 
 
 const NavBar = () => {
