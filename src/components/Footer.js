@@ -14,7 +14,8 @@ const Footer = () => {
                             <a
                                 href="https://www.facebook.com/"
                                 target='_blank'
-                                aria-label='Facebook'>
+                                aria-label='Facebook'
+                                rel=noopener>
                                 <Item>
                                     <i className='fab fa-facebook-f'/>
                                 </Item>
@@ -22,7 +23,9 @@ const Footer = () => {
                             <a
                                 href="https://instagram.com/"
                                 target='_blank'
-                                aria-label='Instagram'>
+                                aria-label='Instagram'
+                                rel=noopener
+                            >
                                 <Item>
                                     <i className='fab fa-instagram'/>
                                 </Item>
@@ -30,7 +33,8 @@ const Footer = () => {
                             <a
                                 href="https://www.youtube.com/"
                                 target='_blank'
-                                aria-label='Youtube'>
+                                aria-label='Youtube'
+                                rel=noopener>
                                 <Item>
                                     <i className='fab fa-youtube'/>
                                 </Item>
@@ -38,7 +42,8 @@ const Footer = () => {
                             <a
                                 href="https://twitter.com/"
                                 target='_blank'
-                                aria-label='Twitter'>
+                                aria-label='Twitter'
+                                rel=noopener>
                                 <Item>
                                     <i className='fab fa-twitter'/>
                                 </Item>
@@ -46,7 +51,8 @@ const Footer = () => {
                             <a
                                 href="https://linkedin.com/"
                                 target='_blank'
-                                aria-label='LinkedIn'>
+                                aria-label='LinkedIn'
+                                rel=noopener>
                                 <Item>
                                     <i className='fab fa-linkedin'/>
                                 </Item>

@@ -113,16 +113,16 @@ const NavBarStyle = styled.div`
 `;
 
 
-const NavbarLogo= styled.div`
-  justify-self: start;
-  margin-left: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  img{
-    width: 16%;
-    
-  }
-`;
+// const NavbarLogo= styled.div`
+//   justify-self: start;
+//   margin-left: 20px;
+//   cursor: pointer;
+//   text-decoration: none;
+//   font-size: 2rem;
+//   display: flex;
+//   align-items: center;
+//   img{
+//     width: 16%;
+//
+//   }
+// `;
