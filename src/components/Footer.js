@@ -15,7 +15,7 @@ const Footer = () => {
                                 href="https://www.facebook.com/"
                                 target='_blank'
                                 aria-label='Facebook'
-                                rel=noopener>
+                                rel="noreferrer">
                                 <Item>
                                     <i className='fab fa-facebook-f'/>
                                 </Item>
@@ -24,7 +24,7 @@ const Footer = () => {
                                 href="https://instagram.com/"
                                 target='_blank'
                                 aria-label='Instagram'
-                                rel=noopener
+                                rel="noreferrer"
                             >
                                 <Item>
                                     <i className='fab fa-instagram'/>
@@ -34,7 +34,7 @@ const Footer = () => {
                                 href="https://www.youtube.com/"
                                 target='_blank'
                                 aria-label='Youtube'
-                                rel=noopener>
+                                rel="noreferrer">
                                 <Item>
                                     <i className='fab fa-youtube'/>
                                 </Item>
@@ -43,7 +43,7 @@ const Footer = () => {
                                 href="https://twitter.com/"
                                 target='_blank'
                                 aria-label='Twitter'
-                                rel=noopener>
+                                rel="noreferrer">
                                 <Item>
                                     <i className='fab fa-twitter'/>
                                 </Item>
@@ -52,7 +52,7 @@ const Footer = () => {
                                 href="https://linkedin.com/"
                                 target='_blank'
                                 aria-label='LinkedIn'
-                                rel=noopener>
+                                rel="noreferrer">
                                 <Item>
                                     <i className='fab fa-linkedin'/>
                                 </Item>
