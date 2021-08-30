@@ -1,16 +1,21 @@
 // import React, {useState} from 'react';
-// import axios from 'react';
+// import axios from 'axios';
 //
 // function fetcher(url) {
 //     // const [data, setData] = useState({});
 //     // const [error, setError] = useState('');
 //     let data = {};
 //
-//     axios.get(url)
-//         .then(res => {
-//             data = res.data
+//     return axios.get(url)
+//         .then(async res => {
+//             await res.data
 //         });
-//     return data;
+//
+//     axios.get(url)
+//         .then(async res => {
+//             return await res.data
+//         });
+//
 // }
 //
 // export default fetcher;

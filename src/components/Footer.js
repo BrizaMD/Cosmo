@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <StyledFooter>
             <div id='copyright'>© DreamTeam</div>
-            <div id='socials'><a href="#">SocialMedia</a></div>
+            <div id='socials'><a href="/">SocialMedia</a></div>
         </StyledFooter>
     )
 }
