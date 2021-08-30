@@ -5,6 +5,7 @@ import Home from "./components/pages/Home";
 import Zodiac from "./components/pages/Zodiac";
 import Love from "./components/pages/Love";
 import Cocktail from "./components/pages/Cocktail";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                     <Cocktail />
                 </Route>
             </Switch>
+            <Footer />
         </Router>
     </div>
   );
