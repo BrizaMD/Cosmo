@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from "./components/NavBar";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Home from "./components/pages/Home";
+import Zodiac from "./components/pages/Zodiac";
+import Love from "./components/pages/Love";
+import Cocktail from "./components/pages/Cocktail";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-
-
-        >
-          Welcome to Jurassic Park
-        </a>
-      </header>
+        <Router>
+            <NavBar />
+            <Switch>
+                <Route path="/" exact >
+                    <Home />
+                </Route>
+                <Route path="/zodiac" exact >
+                    <Zodiac />
+                </Route>
+                <Route path="/love" exact >
+                    <Love />
+                </Route>
+                <Route path="/cocktail" exact >
+                    <Cocktail />
+                </Route>
+            </Switch>
+        </Router>
     </div>
   );
 }
