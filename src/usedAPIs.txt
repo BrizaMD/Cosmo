@@ -1,0 +1,19 @@
+Cocktail API
+https://www.thecocktaildb.com/api.php
+
+Love Calculator
+https://rapidapi.com/ajith/api/love-calculator/
+
+Zodiac Signs
+https://aztro.sameerkumar.website/?sign=leo&day=today
+
+Random advice
+https://api.adviceslip.com/advice
+
+Cat pictures and gifs
+https://cataas.com/#/
+
+Dog pictures
+maybe, because it gives pictures and videos
+https://random.dog/woof.json
+https://dog.ceo/api/breeds/image/random
