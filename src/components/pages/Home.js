@@ -2,6 +2,7 @@ import React from 'react';
 import fortuneCookie from '../../static/img/fortunecookie1.png';
 import brokenFortuneCookie from '../../static/img/fortunecookie2.png';
 import axios from "axios";
+import '../../App.css'
 
 
 const Home = () => {
