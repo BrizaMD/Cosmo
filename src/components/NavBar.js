@@ -35,6 +35,8 @@ const NavBar = () => {
                 <div  className='menu-icon' onClick={handleClick}>
                     <i className={ click ? 'fas fa-times' : 'fas fa-bars'}/>
                 </div>
+
+
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                <NavItem>
                    <Link to="/"  onClick={closeMobileMenu}  className='nav-links'>
@@ -65,7 +67,6 @@ export default NavBar;
 
 const NavItem= styled.div`
   height: 50px;
-
 `;
 
 const Button= styled.div`
@@ -81,9 +82,7 @@ const Button= styled.div`
     transition: all 0.3s ease-out;
     background: #fff;
     color: #242424;
-    transition: 250ms;
   }
-
 `;
 
 const NavBarContainer = styled.div`
