@@ -40,7 +40,7 @@ const NavBar = () => {
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                <NavItem>
                    <Link to="/"  onClick={closeMobileMenu}  className='nav-links'>
-                       <i className="fas fa-home"></i>
+                       <i className="fas fa-home" />
                    </Link>
                </NavItem>
                 <NavItem>
@@ -66,7 +66,7 @@ const NavBar = () => {
 export default NavBar;
 
 const NavItem= styled.div`
-  height: 50px;
+  //height: 50px;
 `;
 
 const Button= styled.div`
