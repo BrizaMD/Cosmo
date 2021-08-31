@@ -16,27 +16,30 @@ const Love = () => {
 
     return (
         <>
-            <HeroContainer>
+            <BackgroundContainer>
                 <video autoPlay loop muted>
                     <source src={video} type="video/mp4"/>
                 </video>
-            </HeroContainer>
+            </BackgroundContainer>
+
             <FormContainer>
                 <form>
                     <label> Love Compatibility</label>
+
                     <input type="text" required value={firstHuman} onChange={myChangeHandler}/>
                     <input type="text" required  value={secondHuman} onChange={myChangeHandler}/>
+
                 </form>
                 <button>Calculate it!</button>
             </FormContainer>
+
         </>
     )
 }
 
 export default Love;
 
-const HeroContainer = styled.div`
-  //height: 100vh;
+const BackgroundContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -45,6 +48,8 @@ const HeroContainer = styled.div`
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
   opacity: 0.3;
+  z-index:-1 ;
+  position: relative;
 
   video {
     object-fit: cover;
