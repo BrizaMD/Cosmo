@@ -1,11 +1,12 @@
 import React from 'react';
-import fortuneCookie from '../../static/img/fortunecookie1.png';
+import cookie from '../../static/img/003-fortune-cookie-2.png';
 import brokenFortuneCookie from '../../static/img/fortunecookie2.png';
 import axios from "axios";
 import '../../App.css'
 import video from "../../static/video/Pexels Videos 1795797.mp4";
 import styled from "styled-components";
 import box from "../../static/img/box.png";
+
 
 
 const Home = () => {
@@ -41,7 +42,8 @@ const Home = () => {
 
     <FortuneCookie>
 
-
+        <img src={cookie}/>
+        <h1> Click </h1>
     </FortuneCookie>
 
 </>
@@ -54,41 +56,31 @@ const FortuneCookie = styled.div`
   border: 1px solid transparent;
   max-width: 550px;
   position: absolute;
-  top: 40vh;
-  right: 20vw;
-  transform: scaleX(-1) translate(-50%, -50%) ;
+  top: 70vh;
+  right: 10vw;
+  transform: translate(-50%, -50%) ;
+  //scaleX(-1)
   margin: auto;
   align-items: center;
   text-align: center;
-
-  background-image: url(${box}) ;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 150px;
-  height: 300px;
-`;
-
-const Card = styled.div`
-  border-radius: initial;
-  min-width: 30rem;
-  display: flex;
-  max-width: 500px;
-  margin: 300px 20px 20px auto;   
-  text-align: center;
-
-  img {
-    width: 30rem;
-    height: 11rem;
-    object-fit: cover;
-    transform: scale(1.1);
+img{
+  width: 100px ;
+}
+  
+  h1{
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
   }
-
+  // background-image: url(${cookie}) ;
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // width: 150px;
+  // height: 300px;
 `;
 
-const CardBody = styled.div`
-  margin: 1rem;
 
-`;
+
 
 const Fortune = styled.div`
     
@@ -105,7 +97,7 @@ const BackgroundContainer = styled.div`
   align-items: center;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
-  opacity: 0.3;
+  opacity: 0.8;
   z-index: -1;
   position: relative;
 
