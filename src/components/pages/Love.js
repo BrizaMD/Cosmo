@@ -74,7 +74,8 @@ const Love = () => {
             {
                 isResultAvailable ?
 
-                    <div id={"result"}>
+                    <ResultContainer>
+                    <ResultCard id={"result"}>
                         <p>{result.result}</p>
                         <Result>
                             <Progress data-size="20" style={{width: result.percentage  + '%'}}>
@@ -82,7 +83,8 @@ const Love = () => {
                             </Progress>
                         </Result>
 
-                    </div>
+                    </ResultCard>
+                    </ResultContainer>
                     :
                     <></>
             }
@@ -91,6 +93,25 @@ const Love = () => {
 }
 
 export default Love;
+
+
+const ResultCard =styled.div`
+  text-align: center;
+  position: center;
+  margin: 1rem;
+  border: 1px solid transparent;
+
+`;
+
+const ResultContainer =styled.div`
+  box-shadow: 0 0 30px 5px;
+  border: 1px solid transparent;
+  max-width: 550px;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  background: white;
+`;
 
 
 const Percentage = styled.div`
@@ -117,6 +138,9 @@ const Result = styled.div`
   height: 30px;
   width: 500px;
   max-width: 100%;
+  p{
+    text-align: center;
+  }
 `;
 
 const Card = styled.div`
