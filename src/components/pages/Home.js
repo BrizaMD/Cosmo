@@ -6,7 +6,6 @@ import axios from "axios";
 import '../../App.css'
 import video from "../../static/video/Pexels Videos 1795797.mp4";
 import styled from "styled-components";
-import Typical from 'react-typical';
 
 
 const Home = () => {
@@ -41,9 +40,6 @@ const Home = () => {
             <FortuneCookie>
                 <img src={cookie} alt="fortune cookie" onClick={getAdvice}/>
             </FortuneCookie>
-            <h1>Hi, Have a nice day!</h1>
-            <p>I'm a developer</p>
-
 
             {
                 isAdvice ?
