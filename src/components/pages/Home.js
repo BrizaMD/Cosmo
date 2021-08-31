@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import cookie from '../../static/img/003-fortune-cookie-2.png';
+import cat from '../../static/img/002-cat-lover.png';
+import dog from '../../static/img/005-dog-lover-1.png';
 import axios from "axios";
 import '../../App.css'
 import video from "../../static/video/Pexels Videos 1795797.mp4";
@@ -10,11 +12,6 @@ const Home = () => {
     const url = 'https://api.adviceslip.com/advice';
     let advice = {};
     const [isAdvice, setAdviceState] = useState(false);
-
-    // const getAdvice = async () => {
-    //     data = fetcher(url);
-    //     console.log(data);
-    // }
 
     const getAdvice = async () => {
         await axios.get(url)
@@ -32,16 +29,22 @@ const Home = () => {
                 </video>
             </BackgroundContainer>
 
-            <FortuneCookie>
+            <Cat>
+                <img src={cat} alt="fortune cookie" onClick={getAdvice}/>
+            </Cat>
+            <Dog>
+                <img src={dog} alt="fortune cookie" onClick={getAdvice}/>
+            </Dog>
 
+
+            <FortuneCookie>
                 <img src={cookie} alt="fortune cookie" onClick={getAdvice}/>
-                <h1 onClick={getAdvice}> Click </h1>
             </FortuneCookie>
 
         </>
     )
 }
-//
+
 // {
 //     isAdvice ?
 //         <Advice>
@@ -55,26 +58,26 @@ const Home = () => {
 
 export default Home;
 
-const Advice = styled.div`
-  border: 1px solid black;
-  max-width: 550px;
-  position: absolute;
-  top: 40vh;
-  right: 35vw;
-  transform: translate(-50%, -50%);
-  //scaleX(-1)
-  margin: auto;
-  align-items: center;
-  text-align: center;
-  font-size: 80px;
-`;
+// const Advice = styled.div`
+//   border: 1px solid black;
+//   max-width: 550px;
+//   position: absolute;
+//   top: 40vh;
+//   right: 35vw;
+//   transform: translate(-50%, -50%);
+//   //scaleX(-1)
+//   margin: auto;
+//   align-items: center;
+//   text-align: center;
+//   font-size: 80px;
+// `;
 
 const FortuneCookie = styled.div`
   border: 1px solid transparent;
   max-width: 550px;
   position: absolute;
-  top: 70vh;
-  right: 10vw;
+  top: 80vh;
+  right: 0vw;
   transform: translate(-50%, -50%);
   //scaleX(-1)
   margin: auto;
@@ -91,11 +94,6 @@ const FortuneCookie = styled.div`
     color: white;
     font-size: 20px;
   }
-    // background-image: url(${cookie}) ;
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  // width: 150px;
-  // height: 300px;
 `;
 
 const BackgroundContainer = styled.div`
@@ -120,3 +118,40 @@ const BackgroundContainer = styled.div`
   }
 
 `;
+
+const Cat = styled.div`
+  border: 1px solid transparent;
+  max-width: 550px;
+  position: absolute;
+  top: 80vh;
+  right: 7vw;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  align-items: center;
+  text-align: center;
+
+  img {
+    width: 100px;
+    cursor: pointer;
+  }
+`;
+const Dog = styled.div`
+
+  border: 1px solid transparent;
+  max-width: 550px;
+  position: absolute;
+  top: 80vh;
+  right: 14vw;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  align-items: center;
+  text-align: center;
+
+  img {
+    width: 100px;
+    cursor: pointer;
+  }
+
+\` ;
+`;
+
