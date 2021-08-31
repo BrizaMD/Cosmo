@@ -1,17 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import cookie from '../../static/img/003-fortune-cookie-2.png';
-import brokenFortuneCookie from '../../static/img/fortunecookie2.png';
 import axios from "axios";
 import '../../App.css'
 import video from "../../static/video/Pexels Videos 1795797.mp4";
 import styled from "styled-components";
-import box from "../../static/img/box.png";
-
 
 
 const Home = () => {
     const url = 'https://api.adviceslip.com/advice';
     let advice = {};
+    const [isAdvice, setAdviceState] = useState(false);
 
     // const getAdvice = async () => {
     //     data = fetcher(url);
@@ -20,37 +18,56 @@ const Home = () => {
 
     const getAdvice = async () => {
         await axios.get(url)
-            .then(async res =>{
-                advice = await res.data.slip.advice;
+            .then(async res => {
+                advice = await res.data.slip;
+                setAdviceState(!isAdvice);
             })
-        console.log(advice);
+
     }
+    return (
+        <>
+            <BackgroundContainer>
+                <video autoPlay loop muted>
+                    <source src={video} type="video/mp4"/>
+                </video>
+            </BackgroundContainer>
 
-    return(
-<>
-        <BackgroundContainer>
-            <video autoPlay loop muted>
-                <source src={video} type="video/mp4"/>
-            </video>
-        </BackgroundContainer>
-{/*<Card>*/}
-{/*        <Fortune id={"fortune"}>*/}
-{/*            <img src={box} alt="fortune cookie" onClick={getAdvice}/>*/}
-{/*        /!*    <img src={brokenFortuneCookie} alt="broken fortune cookie" />*!/*/}
-{/*        </Fortune>*/}
-{/*</Card>*/}
+            <FortuneCookie>
 
-    <FortuneCookie>
+                <img src={cookie} alt="fortune cookie" onClick={getAdvice}/>
+                <h1 onClick={getAdvice}> Click </h1>
+            </FortuneCookie>
 
-        <img src={cookie}/>
-        <h1> Click </h1>
-    </FortuneCookie>
-
-</>
+        </>
     )
 }
+//
+// {
+//     isAdvice ?
+//         <Advice>
+//             {advice.map((item) => (
+//                 <p>{item.advice}</p>
+//             ))}
+//         </Advice>
+//         :
+//         <Advice></Advice>
+// }
 
 export default Home;
+
+const Advice = styled.div`
+  border: 1px solid black;
+  max-width: 550px;
+  position: absolute;
+  top: 40vh;
+  right: 35vw;
+  transform: translate(-50%, -50%);
+  //scaleX(-1)
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  font-size: 80px;
+`;
 
 const FortuneCookie = styled.div`
   border: 1px solid transparent;
@@ -58,35 +75,27 @@ const FortuneCookie = styled.div`
   position: absolute;
   top: 70vh;
   right: 10vw;
-  transform: translate(-50%, -50%) ;
+  transform: translate(-50%, -50%);
   //scaleX(-1)
   margin: auto;
   align-items: center;
   text-align: center;
-img{
-  width: 100px ;
-}
-  
-  h1{
+
+  img {
+    width: 100px;
+    cursor: pointer;
+  }
+
+  h1 {
     cursor: pointer;
     color: white;
     font-size: 20px;
   }
-  // background-image: url(${cookie}) ;
+    // background-image: url(${cookie}) ;
   // background-size: contain;
   // background-repeat: no-repeat;
   // width: 150px;
   // height: 300px;
-`;
-
-
-
-
-const Fortune = styled.div`
-    
-    img{
-      max-width: 100px;
-    }
 `;
 
 const BackgroundContainer = styled.div`
