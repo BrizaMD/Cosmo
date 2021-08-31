@@ -34,19 +34,22 @@ const Cocktail = () => {
     return(
         <DrinksContainer>
             <ButtonContainer>
+                <p>If you want a good time or just drink something tasty...</p>
                 <button onClick={()=> handleClick()}>Get a Drink!</button>
             </ButtonContainer>
             {randomDrink.id === '' ?
                 <></> :
                 <DrinkContainer>
-                    <div>
+                    <div id={'cocktailImage'}>
                         <img alt='cocktail' src={randomDrink.picture} />
                     </div>
-                    <div>Name: {randomDrink.name}</div>
-                    <div>Category: {randomDrink.category}</div>
-                    <div>Alcohol Content: {randomDrink.alcoholContent}</div>
-                    <div>Serve it in: {randomDrink.glassType}</div>
-                    <div>Instructions: {randomDrink.instructions_EN}</div>
+                    <div id={'details'}>
+                        <div>Name: {randomDrink.name}</div>
+                        <div>Category: {randomDrink.category}</div>
+                        <div>Alcohol Content: {randomDrink.alcoholContent}</div>
+                        <div>Serve it in: {randomDrink.glassType}</div>
+                        <div>Instructions: {randomDrink.instructions_EN}</div>
+                    </div>
                 </DrinkContainer>
             }
         </DrinksContainer>
@@ -56,21 +59,35 @@ const Cocktail = () => {
 export default Cocktail;
 
 const DrinksContainer = styled.div`
-  margin: auto;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
+  
 `;
 
 const ButtonContainer = styled.div`
+  width: 100%;
   padding: 10px;
   margin: auto;
+  display: flex;
   justify-content: center;
   vertical-align: middle;
+  align-items: center;
 `;
 
 const DrinkContainer = styled.div`
+  
+  border: 1px solid black; //just to see where it is
     
+  #details {
+    
+  }
+  
+  #cocktailImage{
+    //float: left;
+  }
+
     img {
-      max-width: 500px;
+      max-width: 300px;
       height: auto;
     }
   
