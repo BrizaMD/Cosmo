@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import video from '../../static/video/Love - 3191.mp4';
 import cover from '../../static/img/daisies.jpg'
+import axios from "axios";
 
 
 const Love = () => {
@@ -10,14 +11,29 @@ const Love = () => {
     const [firstHuman, setFirstHuman] = useState('Your name');
     const [secondHuman, setSecondHuman] = useState('Your partner name');
 
-
     const myChangeHandler = (event) => {
-        this.setState({username: event.target.value});
-        setFirstHuman(event.target.value);
-    }
+        event.preventDefault();
+        console.log(firstHuman, secondHuman);
 
-   const  handleChange = (event) => {
-        this.setState({value: event.target.value});
+        let axios = require("axios").default;
+
+        let options = {
+            method: 'GET',
+            url: 'https://love-calculator.p.rapidapi.com/getPercentage',
+            params: {fname: firstHuman, sname: secondHuman},
+            headers: {
+                'x-rapidapi-host': 'love-calculator.p.rapidapi.com',
+                'x-rapidapi-key': '160cd4edfbmshb786acd93bda484p1a7f39jsn4b3f394c969f'
+            }
+        };
+
+        axios.request(options).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
+
+
     }
 
     return (
@@ -35,7 +51,7 @@ const Love = () => {
                 <CardBody>
 
                     <FormContainer>
-                        <form>
+                        <form onSubmit={myChangeHandler}>
                             <label> Love Compatibility</label>
 
                             <input type="text" required value={firstHuman} onChange={(e) => setFirstHuman(e.target.value) } />
