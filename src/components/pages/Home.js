@@ -151,7 +151,6 @@ const Dog = styled.div`
     width: 100px;
     cursor: pointer;
   }
-
-\` ;
+  
 `;
 
