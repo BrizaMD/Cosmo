@@ -99,18 +99,19 @@ const ResultContainer =styled.div`
   box-shadow: 0 0 30px 5px;
   border: 1px solid transparent;
   max-width: 550px;
-  display: flex;
-  justify-content: center;
   background: white;
-  position: relative;
-  //margin: 0px 200 0 200px;
-  margin: 200px 200px 200px 100px; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto; 
+  align-items: center;
+  text-align: center;
   
   p{
   }
 
 `;
-
 
 const Percentage = styled.div`
   text-align: center;
