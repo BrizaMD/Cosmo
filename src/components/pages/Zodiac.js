@@ -6,6 +6,7 @@ const Zodiac = () => {
     const zodiacs = ['aquarius', 'pisces', 'aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn'];
     const [chosenZodiac, setChosenZodiac] = useState('aquarius');
     const [zodiac, setZodiac] = useState({
+        name: '',
         data_range: '',
         current_date: '',
         description: '',
@@ -20,6 +21,7 @@ const Zodiac = () => {
         axios.post('https://aztro.sameerkumar.website/?sign=aquarius&day=today')
             .then( async res => {
                 await setZodiac({
+                    name: chosenZodiac,
                     data_range: res.data.data_range,
                     current_date: res.data.current_date,
                     description: res.data.description,
@@ -38,6 +40,7 @@ const Zodiac = () => {
         await axios.post('https://aztro.sameerkumar.website/?sign='+sign+'&day=today')
             .then( async res => {
                 await setZodiac({
+                    name: sign,
                     data_range: res.data.data_range,
                     current_date: res.data.current_date,
                     description: res.data.description,
@@ -56,14 +59,14 @@ const Zodiac = () => {
                 {zodiacs.map((sign) => (
                     <div key={sign}>
                         {sign}
-                        <img src={'zodiacs/' + sign + '.jpg'} alt={sign} onClick={(e) => handleClick(sign)} />
+                        <img src={'zodiacs/' + sign + '.jpg'} alt={sign} onClick={() => handleClick(sign)} />
                     </div>
                     )
                 )}
             </SignContainer>
 
             <SignDetailsContainer>
-                <div className={'picture'}><img alt={'missing epic zodiac art'}/></div>
+                <div className={'picture'}><img src={'zodiacs/'+chosenZodiac+'-fancy.jpg'} alt={'missing epic zodiac art'}/></div>
                 <div className={'details'}>Details<br/>
                     <div>Zodiac Name:{chosenZodiac}</div>
                     <div>Compatibility: {zodiac.compatibility}</div>
@@ -83,7 +86,7 @@ export default Zodiac;
 
 const ZodiacPage = styled.div`
     width: 100%;
-  margin: auto;
+    margin: auto;
 `;
 
 const SignContainer = styled.div`
@@ -123,24 +126,49 @@ const SignContainer = styled.div`
 
 const SignDetailsContainer = styled.div`
   
-  .picture {grid-area: picture;}
-  .details {grid-area: details;}
-  .description {grid-area: description;}
   
   border: 2px gray solid; //this will help with styling until it is done
   padding: 30px;
   margin: auto;
   display: grid;
   max-width: 50%;
+  height: auto;
+  //grid-template-columns: repeat(4, auto);
   // grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  //grid-template-areas: 
+  //  'picture picture details details'
+  //  'picture picture details details'
+  //  'picture picture details details'
+  //  'description description description description'
+  //  'description description description description';
   grid-template-areas: 
-    'picture picture details details'
-    'picture picture details details'
-    'picture picture details details'
-    'description description description description'
-    'description description description description';
+    'picture details'
+    'description description'
+    'description description';
   grid-gap: 1rem;
+  
   .name {
     text-transform: capitalize;
   }
+  .picture img {
+    grid-area: picture;
+    
+    max-width: 100%;
+    height: auto;
+  }
+  .details {
+    grid-area: details;
+    max-width: 100%;
+    height: auto;
+    div{
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .description {
+    grid-area: description;
+    max-width: 100%;
+    height: auto;
+  }
+
 `;
