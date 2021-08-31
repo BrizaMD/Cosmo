@@ -19,7 +19,7 @@ const Home = () => {
                 advice = await res.data.slip;
                 setAdviceState(!isAdvice);
             })
-
+        console.log(advice);
     }
     return (
         <>
