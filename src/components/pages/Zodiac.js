@@ -51,7 +51,7 @@ const Zodiac = () => {
     }
 
     return(
-        <div>
+        <ZodiacPage>
             <SignContainer className={'signbuttons-container'}>
                 {zodiacs.map((sign) => (
                     <div key={sign}>
@@ -64,15 +64,27 @@ const Zodiac = () => {
 
             <SignDetailsContainer>
                 <div className={'picture'}><img alt={'missing epic zodiac art'}/></div>
-                <div className={'name'}>Zodiac Name:<br/>{chosenZodiac}</div>
-                <div className={'description'}>Today's Zodiac: {zodiac.description}</div>
+                <div className={'details'}>Details<br/>
+                    <div>Zodiac Name:{chosenZodiac}</div>
+                    <div>Compatibility: {zodiac.compatibility}</div>
+                    <div>Mood: {zodiac.mood}</div>
+                    <div>Color: {zodiac.color}</div>
+                    <div>Lucky Number: {zodiac.lucky_number}</div>
+                    <div>Lucky Time: {zodiac.lucky_time}</div>
+                </div>
+                <div className={'description'}>Today's Zodiac:<br/>{zodiac.description}</div>
+
             </SignDetailsContainer>
-        </div>
+        </ZodiacPage>
     )
 }
 
 export default Zodiac;
 
+const ZodiacPage = styled.div`
+    width: 100%;
+  margin: auto;
+`;
 
 const SignContainer = styled.div`
   display: grid;
@@ -98,27 +110,36 @@ const SignContainer = styled.div`
     margin-bottom: 10px;
     
     img {
-      width: 68px;
-      height: 68px;
+      width: 75px;
+      height: 75px;
+      :hover {
+        transition-duration: 0.1s;
+        transform: scale(1.2);
+      }
     }
   }
   
 `;
 
 const SignDetailsContainer = styled.div`
+  
+  .picture {grid-area: picture;}
+  .details {grid-area: details;}
+  .description {grid-area: description;}
+  
   border: 2px gray solid; //this will help with styling until it is done
   padding: 30px;
-  margin: 100px;
+  margin: auto;
   display: grid;
-  align-self: center;
-  justify-self: center;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  max-width: 50%;
+  // grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   grid-template-areas: 
-    'picture picture name name'
-    'picture picture description description'
-    'picture picture description description';
+    'picture picture details details'
+    'picture picture details details'
+    'picture picture details details'
+    'description description description description'
+    'description description description description';
   grid-gap: 1rem;
-  justify-content: space-evenly;
   .name {
     text-transform: capitalize;
   }
