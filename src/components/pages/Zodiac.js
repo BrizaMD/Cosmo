@@ -17,7 +17,7 @@ const Zodiac = () => {
     })
 
     useEffect((chosenZodiac) => {
-        axios.post('https://aztro.sameerkumar.website/?sign=aries&day=today')
+        axios.post('https://aztro.sameerkumar.website/?sign=aquarius&day=today')
             .then( async res => {
                 await setZodiac({
                     data_range: res.data.data_range,
@@ -35,7 +35,7 @@ const Zodiac = () => {
 
     const handleClick = async function (sign) {
         setChosenZodiac(sign);
-        await axios.post('https://aztro.sameerkumar.website/?sign='+chosenZodiac+'&day=today')
+        await axios.post('https://aztro.sameerkumar.website/?sign='+sign+'&day=today')
             .then( async res => {
                 await setZodiac({
                     data_range: res.data.data_range,
@@ -63,8 +63,8 @@ const Zodiac = () => {
             </SignContainer>
 
             <SignDetailsContainer>
-                <div className={'picture'}><img alt={'epic zodiac art'}/></div>
-                <div className={'name'}>Zodiac Name: </div>
+                <div className={'picture'}><img alt={'missing epic zodiac art'}/></div>
+                <div className={'name'}>Zodiac Name:<br/>{chosenZodiac}</div>
                 <div className={'description'}>Today's Zodiac: {zodiac.description}</div>
             </SignDetailsContainer>
         </div>
@@ -76,7 +76,18 @@ export default Zodiac;
 
 const SignContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: auto auto auto auto auto auto;
+  
+  @media (max-width: 800px) {
+    grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: auto auto;
+  }
+  border: 2px gray solid; //this will help with styling until it is done
   grid-gap: 1rem;
   justify-content: space-evenly;
   div {
@@ -95,6 +106,7 @@ const SignContainer = styled.div`
 `;
 
 const SignDetailsContainer = styled.div`
+  border: 2px gray solid; //this will help with styling until it is done
   padding: 30px;
   margin: 100px;
   display: grid;
@@ -107,4 +119,7 @@ const SignDetailsContainer = styled.div`
     'picture picture description description';
   grid-gap: 1rem;
   justify-content: space-evenly;
+  .name {
+    text-transform: capitalize;
+  }
 `;
