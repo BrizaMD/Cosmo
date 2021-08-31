@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
-import {Link} from 'react-router-dom';
 import video from '../../static/video/Love - 3191.mp4';
 import cover from '../../static/img/daisies.jpg'
-import axios from "axios";
 
 
 const Love = () => {
@@ -54,7 +52,7 @@ const Love = () => {
                 </video>
             </BackgroundContainer>
             <Card>
-                <img src={cover} alt="picture"/>
+                <img src={cover} alt="daisy"/>
                 <CardBody>
 
                     <FormContainer>
