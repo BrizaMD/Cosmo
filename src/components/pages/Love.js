@@ -8,13 +8,16 @@ import axios from "axios";
 
 const Love = () => {
 
+    const [isResultAvailable, setResultAvailable] = useState(false);
     const [firstHuman, setFirstHuman] = useState('Your name');
     const [secondHuman, setSecondHuman] = useState('Your partner name');
+    const [result, setResult] = useState({
+        percentage: "",
+        result: ""
+    });
 
     const myChangeHandler = (event) => {
         event.preventDefault();
-        console.log(firstHuman, secondHuman);
-
         let axios = require("axios").default;
 
         let options = {
@@ -27,13 +30,20 @@ const Love = () => {
             }
         };
 
-        axios.request(options).then(function (response) {
-            console.log(response.data);
-        }).catch(function (error) {
-            console.error(error);
+        axios
+            .request(options)
+            .then(function (response) {
+                setResult(
+                    {
+                        percentage: response.data.percentage,
+                        result: response.data.result
+                    }
+                )
+                setResultAvailable(true);
+            })
+            .catch(function (error) {
+                console.error(error);
         });
-
-
     }
 
     return (
@@ -43,27 +53,39 @@ const Love = () => {
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
-
-
-
             <Card>
-                <img src={cover} alt="picture" />
+                <img src={cover} alt="picture"/>
                 <CardBody>
 
                     <FormContainer>
                         <form onSubmit={myChangeHandler}>
                             <label> Love Compatibility</label>
 
-                            <input type="text" required value={firstHuman} onChange={(e) => setFirstHuman(e.target.value) } />
-                            <input type="text" required  value={secondHuman}   onChange={(e) => setSecondHuman(e.target.value) } />
+                            <input type="text" required value={firstHuman}
+                                   onChange={(e) => setFirstHuman(e.target.value)}/>
+                            <input type="text" required value={secondHuman}
+                                   onChange={(e) => setSecondHuman(e.target.value)}/>
                             <button onClick={myChangeHandler}>Calculate it!</button>
                         </form>
                     </FormContainer>
                 </CardBody>
             </Card>
 
+            {
+                isResultAvailable ?
 
+                    <div id={"result"}>
+                        <p>{result.result}</p>
+                        <Result>
+                            <Progress data-size="20" style={{width: result.percentage  + '%'}}>
+                                <Percentage>{result.percentage} %</Percentage>
+                            </Progress>
+                        </Result>
 
+                    </div>
+                    :
+                    <></>
+            }
         </>
     )
 }
@@ -71,26 +93,52 @@ const Love = () => {
 export default Love;
 
 
+const Percentage = styled.div`
+  text-align: center;
+  color: white;
+`;
+
+const Progress = styled.div`
+  background: #ad5389;
+  background: -webkit-linear-gradient(to bottom, #3c1053, #ad5389);
+  background: linear-gradient(to bottom, #3c1053, #ad5389);
+  border-radius: 3px;
+  height: 30px;
+  width: 0;
+  transition: width 0.5s ease-in;
+
+`;
+
+const Result = styled.div`
+  background-color: #fefefe;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  height: 30px;
+  width: 500px;
+  max-width: 100%;
+`;
+
 const Card = styled.div`
-    box-shadow: 0 0 20px 5px;
-    border-radius: initial;
-    min-width: 28rem;
-    display: flex;
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center ;
-  
-  img{
+  box-shadow: 0 0 20px 5px;
+  border-radius: initial;
+  min-width: 28rem;
+  display: flex;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+
+  img {
     width: 15rem;
     height: 11rem;
     object-fit: cover;
     transform: scale(1.1);
   }
-  
+
 `;
 
 const CardBody = styled.div`
-    margin:1rem;
+  margin: 1rem;
 
 `;
 
@@ -103,7 +151,7 @@ const BackgroundContainer = styled.div`
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
   opacity: 0.3;
-  z-index:-1 ;
+  z-index: -1;
   position: relative;
 
   video {
@@ -118,32 +166,32 @@ const BackgroundContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center ;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
 
-    
-  label{
+
+  label {
     text-align: left;
     display: block;
   }
-  
-  input, textarea{
-    width:100%;
+
+  input, textarea {
+    width: 100%;
     padding: 6px 10px;
     margin: 10px 0;
     border: 1px solid #ddd;
     box-sizing: border-box;
     display: block;
   }
-  
-  button{
+
+  button {
     background: #f1356d;
     color: white;
     border: 0;
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
-    
+
   }
 `;
