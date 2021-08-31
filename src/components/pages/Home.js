@@ -6,20 +6,21 @@ import axios from "axios";
 import '../../App.css'
 import video from "../../static/video/Pexels Videos 1795797.mp4";
 import styled from "styled-components";
+import Typical from 'react-typical';
 
 
 const Home = () => {
     const url = 'https://api.adviceslip.com/advice';
-    let advice = {};
+    const [advice, setAdvice] = useState("");
     const [isAdvice, setAdviceState] = useState(false);
 
     const getAdvice = async () => {
         await axios.get(url)
             .then(async res => {
-                advice = await res.data.slip;
-                setAdviceState(!isAdvice);
+               setAdvice(await res.data.slip.advice);
+                setAdviceState(true);
             })
-        console.log(advice);
+        console.log(typeof  advice);
     }
     return (
         <>
@@ -40,37 +41,39 @@ const Home = () => {
             <FortuneCookie>
                 <img src={cookie} alt="fortune cookie" onClick={getAdvice}/>
             </FortuneCookie>
+            <h1>Hi, Have a nice day!</h1>
+            <p>I'm a developer</p>
 
-        </>
+
+            {
+                isAdvice ?
+                    <Advice>
+                        { advice }
+                    </Advice>
+                    :
+                    <Advice></Advice>
+            }
+            </>
     )
 }
 
-// {
-//     isAdvice ?
-//         <Advice>
-//             {advice.map((item) => (
-//                 <p>{item.advice}</p>
-//             ))}
-//         </Advice>
-//         :
-//         <Advice></Advice>
-// }
+
 
 export default Home;
 
-// const Advice = styled.div`
-//   border: 1px solid black;
-//   max-width: 550px;
-//   position: absolute;
-//   top: 40vh;
-//   right: 35vw;
-//   transform: translate(-50%, -50%);
-//   //scaleX(-1)
-//   margin: auto;
-//   align-items: center;
-//   text-align: center;
-//   font-size: 80px;
-// `;
+const Advice = styled.div`
+  border: 1px solid black;
+  max-width: 550px;
+  position: absolute;
+  top: 40vh;
+  right: 10vw;
+  transform: translate(-50%, -50%);
+  //scaleX(-1)
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+`;
 
 const FortuneCookie = styled.div`
   border: 1px solid transparent;
