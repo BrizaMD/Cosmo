@@ -1,8 +1,54 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
+import axios from "axios";
 
 const Zodiac = () => {
     const zodiacs = ['aquarius', 'pisces', 'aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn'];
+    const [chosenZodiac, setChosenZodiac] = useState('aquarius');
+    const [zodiac, setZodiac] = useState({
+        data_range: '',
+        current_date: '',
+        description: '',
+        compatibility: '',
+        mood: '',
+        color: '',
+        lucky_number: '',
+        lucky_time: ''
+    })
+
+    useEffect((chosenZodiac) => {
+        axios.post('https://aztro.sameerkumar.website/?sign=aries&day=today')
+            .then( async res => {
+                await setZodiac({
+                    data_range: res.data.data_range,
+                    current_date: res.data.current_date,
+                    description: res.data.description,
+                    compatibility: res.data.compatibility,
+                    mood: res.data.mood,
+                    color: res.data.color,
+                    lucky_number: res.data.lucky_number,
+                    lucky_time: res.data.lucky_time
+                })
+            })
+    }, [])
+
+
+    const handleClick = async function (sign) {
+        setChosenZodiac(sign);
+        await axios.post('https://aztro.sameerkumar.website/?sign='+chosenZodiac+'&day=today')
+            .then( async res => {
+                await setZodiac({
+                    data_range: res.data.data_range,
+                    current_date: res.data.current_date,
+                    description: res.data.description,
+                    compatibility: res.data.compatibility,
+                    mood: res.data.mood,
+                    color: res.data.color,
+                    lucky_number: res.data.lucky_number,
+                    lucky_time: res.data.lucky_time
+                })
+            })
+    }
 
     return(
         <div>
@@ -10,7 +56,7 @@ const Zodiac = () => {
                 {zodiacs.map((sign) => (
                     <div key={sign}>
                         {sign}
-                        <img src={'zodiacs/' + sign + '.jpg'} alt={sign} />
+                        <img src={'zodiacs/' + sign + '.jpg'} alt={sign} onClick={(e) => handleClick(sign)} />
                     </div>
                     )
                 )}
@@ -18,8 +64,8 @@ const Zodiac = () => {
 
             <SignDetailsContainer>
                 <div className={'picture'}><img alt={'epic zodiac art'}/></div>
-                <div className={'name'}>Zodiac Name</div>
-                <div className={'description'}>Today's Zodiac</div>
+                <div className={'name'}>Zodiac Name: </div>
+                <div className={'description'}>Today's Zodiac: {zodiac.description}</div>
             </SignDetailsContainer>
         </div>
     )
