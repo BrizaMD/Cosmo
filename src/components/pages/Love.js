@@ -16,6 +16,10 @@ const Love = () => {
         setFirstHuman(event.target.value);
     }
 
+   const  handleChange = (event) => {
+        this.setState({value: event.target.value});
+    }
+
     return (
         <>
             <BackgroundContainer>
@@ -34,16 +38,14 @@ const Love = () => {
                         <form>
                             <label> Love Compatibility</label>
 
-                            <input type="text" required value={firstHuman} onChange={myChangeHandler}/>
-                            <input type="text" required  value={secondHuman} onChange={myChangeHandler}/>
-
+                            <input type="text" required value={firstHuman} onChange={(e) => setFirstHuman(e.target.value) } />
+                            <input type="text" required  value={secondHuman}   onChange={(e) => setSecondHuman(e.target.value) } />
+                            <button onClick={myChangeHandler}>Calculate it!</button>
                         </form>
-                        <button>Calculate it!</button>
                     </FormContainer>
-
                 </CardBody>
-
             </Card>
+
 
 
         </>
@@ -52,16 +54,15 @@ const Love = () => {
 
 export default Love;
 
+
 const Card = styled.div`
     box-shadow: 0 0 20px 5px;
-    //border-radius: initial;
+    border-radius: initial;
     min-width: 28rem;
     display: flex;
     max-width: 400px;
     margin: 0 auto;
     text-align: center ;
-
-
   
   img{
     width: 15rem;
