@@ -68,8 +68,6 @@ const NavItem= styled.div`
 
 `;
 
-
-
 const Button= styled.div`
   padding: 8px 20px;
   border-radius: 2px;
