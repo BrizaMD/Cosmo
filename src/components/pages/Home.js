@@ -38,12 +38,35 @@ const Home = () => {
 {/*        /!*    <img src={brokenFortuneCookie} alt="broken fortune cookie" />*!/*/}
 {/*        </Fortune>*/}
 {/*</Card>*/}
+
+    <FortuneCookie>
+
+
+    </FortuneCookie>
+
 </>
     )
 }
 
 export default Home;
 
+const FortuneCookie = styled.div`
+  border: 1px solid transparent;
+  max-width: 550px;
+  position: absolute;
+  top: 40vh;
+  right: 20vw;
+  transform: scaleX(-1) translate(-50%, -50%) ;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+
+  background-image: url(${box}) ;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 300px;
+`;
 
 const Card = styled.div`
   border-radius: initial;

@@ -107,10 +107,6 @@ const ResultContainer =styled.div`
   margin: auto; 
   align-items: center;
   text-align: center;
-  
-  p{
-  }
-
 `;
 
 const Percentage = styled.div`
