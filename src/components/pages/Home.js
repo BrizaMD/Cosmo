@@ -6,21 +6,25 @@ import axios from "axios";
 import '../../App.css'
 import video from "../../static/video/Pexels Videos 1795797.mp4";
 import styled from "styled-components";
+import Typewriter from 'typewriter-effect';
 
 
 const Home = () => {
-    const url = 'https://api.adviceslip.com/advice';
+    const adviceUrl = 'https://api.adviceslip.com/advice';
+    const catUrl = 'https://cataas.com/cat';
+    const dogUrl = 'https://random.dog/';
     const [advice, setAdvice] = useState("");
     const [isAdvice, setAdviceState] = useState(false);
 
     const getAdvice = async () => {
-        await axios.get(url)
+        await axios.get(adviceUrl)
             .then(async res => {
                setAdvice(await res.data.slip.advice);
                 setAdviceState(true);
             })
-        console.log(typeof  advice);
     }
+
+
     return (
         <>
             <BackgroundContainer>
@@ -30,10 +34,10 @@ const Home = () => {
             </BackgroundContainer>
 
             <Cat>
-                <img src={cat} alt="fortune cookie" onClick={getAdvice}/>
+                <a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a>
             </Cat>
             <Dog>
-                <img src={dog} alt="fortune cookie" onClick={getAdvice}/>
+                <a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a>
             </Dog>
 
 
@@ -41,13 +45,26 @@ const Home = () => {
                 <img src={cookie} alt="fortune cookie" onClick={getAdvice}/>
             </FortuneCookie>
 
+
             {
                 isAdvice ?
-                    <Advice>
-                        { advice }
+                    <Advice id={"result"}>
+                        <Typewriter
+                            onInit={(typewriter) => {
+
+                                typewriter.typeString(advice)
+                                    .pauseFor(2500)
+                                    .deleteAll()
+                                    .start();
+                            }}
+                        />
+
+
                     </Advice>
                     :
-                    <Advice></Advice>
+                    <Advice>
+                            Ask fortune cookie :)
+                    </Advice>
             }
             </>
     )
@@ -58,17 +75,18 @@ const Home = () => {
 export default Home;
 
 const Advice = styled.div`
-  border: 1px solid black;
+  border: transparent;
   max-width: 550px;
   position: absolute;
-  top: 40vh;
-  right: 10vw;
+  top: 35vh;
+  right: 0vw;
   transform: translate(-50%, -50%);
-  //scaleX(-1)
   margin: auto;
   align-items: center;
   text-align: center;
   font-size: 20px;
+  color: white;
+  
 `;
 
 const FortuneCookie = styled.div`

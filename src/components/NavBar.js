@@ -37,8 +37,11 @@ const NavBar = () => {
                     <i className={ click ? 'fas fa-times' : 'fas fa-bars'}/>
                 </div>
 
-            <img className='navbar-logo' src={logo} alt={"logo"}/>
+                <Link to="/" className='navbar-logo' onClick={closeMobileMenu}>
+                    <img className='navbar-logo' src={logo} alt={"logo"}/>
+                </Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+
                <NavItem>
                    <Link to="/"  onClick={closeMobileMenu}  className='nav-links'>
                        <i className="fas fa-home" />
@@ -92,7 +95,7 @@ const NavBarContainer = styled.div`
   align-items: center;
   height: 80px;
   max-width: 1500px;
-  margin-left: 500px;
+  //margin-left: 500px;
 
 `;
 
@@ -109,18 +112,3 @@ const NavBarStyle = styled.div`
   z-index: 999;
   
 `;
-
-
-// const NavbarLogo= styled.div`
-//   justify-self: start;
-//   margin-left: 20px;
-//   cursor: pointer;
-//   text-decoration: none;
-//   font-size: 2rem;
-//   display: flex;
-//   align-items: center;
-//   img{
-//     width: 16%;
-//
-//   }
-// `;

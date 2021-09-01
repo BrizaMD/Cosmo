@@ -10,18 +10,18 @@
 }
 
 
+
 .navbar-logo {
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
     text-decoration: none;
-    top:50%;
-    left: 2vw;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 70px;
-    /*display: flex;*/
-    /*align-items: center;*/
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    width: 20%;
+    max-width: max-content;
+
 }
 
 .nav-item {
