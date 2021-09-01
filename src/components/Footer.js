@@ -137,8 +137,8 @@ const StyledFooter = styled.div`
   //position: fixed;
   //bottom: 0;
   //width: 100%;
-  //background-color: #d585d2;
   //color: white;
+  //background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);  padding: 1rem 0 0rem 0;
   //
   //#copyright{
   //    float: left;

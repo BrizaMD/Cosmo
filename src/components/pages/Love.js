@@ -100,29 +100,6 @@ const Love = () => {
 
 export default Love;
 
-
-const MobileContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
-  
-  @media (max-width: 500px) {
-    grid-template-columns: auto auto auto auto;
-  }
-  @media (max-width: 300px) {
-    grid-template-columns: auto auto auto;
-  }
-  @media (max-width: 100px) {
-    grid-template-columns: auto auto;
-  }
-
-  grid-gap: 20px;
-  left: 90%;
-  padding:5px 20px 5px 20px;
-  justify-content: space-evenly;
-  
-`;
-
-
 const ResultContainer =styled.div`
   border: transparent;
   max-width: 550px;
@@ -207,6 +184,7 @@ const BackgroundContainer = styled.div`
   opacity: 0.3;
   z-index: -1;
   position: relative;
+  background: pink;
 
   video {
     object-fit: cover;
