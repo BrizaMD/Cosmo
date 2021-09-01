@@ -96,10 +96,9 @@ export default Love;
 
 
 const ResultContainer =styled.div`
-  box-shadow: 0 0 30px 5px;
-  border: 1px solid transparent;
+  border: transparent;
   max-width: 550px;
-  background: white;
+  background: transparent;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -107,6 +106,7 @@ const ResultContainer =styled.div`
   margin: auto; 
   align-items: center;
   text-align: center;
+  font-size: x-large;
 `;
 
 const Percentage = styled.div`
@@ -126,7 +126,7 @@ const Progress = styled.div`
 `;
 
 const Result = styled.div`
-  background-color: #fefefe;
+  background-color: white;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin: 15px;
