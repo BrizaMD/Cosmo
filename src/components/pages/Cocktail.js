@@ -45,7 +45,7 @@ const Cocktail = () => {
             </ButtonContainer>
             {randomDrink.id === '' ?
                 <></> :
-                <DrinkContainer>
+                <DrinkContainer data-testid="result">
                     <div id={'cocktailImage'}>
                         <img alt='cocktail' src={randomDrink.picture} />
                     </div>
