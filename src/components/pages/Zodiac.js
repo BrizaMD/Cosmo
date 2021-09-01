@@ -57,22 +57,25 @@ const Zodiac = () => {
     return(
         <ZodiacPage>
             <BackgroundContainer>
-                <video autoPlay loop muted>
+                <video autoPlay loop muted data-testid='background'>
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
-            <SignContainer className={'signbuttons-container'}>
+            <SignContainer data-testid='signs' className={'signbuttons-container'}>
                 {zodiacs.map((sign) => (
                     <div key={sign}>
                         {sign}
-                        <img src={'zodiacs/' + sign + '.png'} alt={sign} onClick={() => handleClick(sign)} />
+                        <img src={'zodiacs/' + sign + '.png'} alt={sign}  data-testid={sign}
+                             onClick={() => handleClick(sign)} />
                     </div>
                     )
                 )}
             </SignContainer>
 
             <SignDetailsContainer>
-                <div className={'picture'}><img src={'zodiacs/'+chosenZodiac+'-fancy.jpg'} alt={'missing epic zodiac art'}/></div>
+                <div className={'picture'}>
+                    <img data-testid='result' title={chosenZodiac} src={'zodiacs/'+chosenZodiac+'-fancy.jpg'} alt={'missing epic zodiac art'}/>
+                </div>
                 <div className={'details'}>Details<br/>
                     <div>Zodiac Name: {chosenZodiac}</div>
                     <div>Compatibility: {zodiac.compatibility}</div>
