@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import styled from "styled-components";
-import video from '../../static/video/Love - 3191.mp4';
-import cover from '../../static/img/daisies.jpg'
+import video from '../../static/video/Heart - 44010.mp4';
+import cover from '../../static/img/heart.jpg'
 
 
 const Love = () => {
@@ -139,12 +139,12 @@ const Result = styled.div`
 `;
 
 const Card = styled.div`
-  box-shadow: 0 0 20px 5px;
+  box-shadow: 0 0 30px 1px;
   border-radius: initial;
   min-width: 28rem;
   display: flex;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 50px auto  0px auto;
   text-align: center;
 
   img {
