@@ -40,8 +40,8 @@ const Cocktail = () => {
                 </video>
             </BackgroundContainer>
             <ButtonContainer>
-                <p>If you want a good time or just drink something tasty...</p>
-                <button onClick={()=> handleClick()}>Get a Drink!</button>
+                <h1>If you want a good time or just drink something tasty...</h1>
+                <CocktailButton onClick={()=> handleClick()}>Get a Drink!</CocktailButton>
             </ButtonContainer>
             {randomDrink.id === '' ?
                 <></> :
@@ -80,8 +80,15 @@ const ButtonContainer = styled.div`
   align-items: center;
 `;
 
+const CocktailButton = styled.button`
+  font-family: 'PT Sans', sans-serif;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+`;
+
 const DrinkContainer = styled.div`
-  
+  display: flex;
   border: 1px solid black; //just to see where it is
     
   #details {
