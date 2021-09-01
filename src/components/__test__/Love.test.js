@@ -1,8 +1,14 @@
 import React from "react";
-import {render, fireEvent, cleanup, waitForElement} from '@testing-library/react';
+import {render, fireEvent, cleanup} from '@testing-library/react';
 import Love from '../pages/Love';
 import "@testing-library/jest-dom/extend-expect";
 
+
+beforeAll(() =>
+        Object.defineProperty(HTMLMediaElement.prototype, "muted", {
+            set: jest.fn(),
+        })
+);
 
 test('page has a video background', () =>{
     const { getByTestId } = render(<Love/>);
