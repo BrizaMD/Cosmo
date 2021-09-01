@@ -11,12 +11,8 @@ beforeAll(() =>
 
 test('home page icons and bg reders without crashing', () =>{
     const { getByTestId } = render(<Home/>);
-    const dog = getByTestId('dog-icon');
-    const cat = getByTestId('cat-icon');
     const background = getByTestId('background-video');
 
-    expect(dog).toBeTruthy();
-    expect(cat).toBeTruthy();
     expect(background).toBeTruthy();
 })
 

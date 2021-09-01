@@ -18,37 +18,31 @@ const Home = () => {
 
     const getAdvice = async () => {
         await axios.get(adviceUrl)
-            .then(
-                async res => {
-                setAdvice(await res.data.slip.advice);
+            .then(async res => {
+               setAdvice(await res.data.slip.advice);
                 setAdviceState(!isAdvice);
             })
     }
 
+
     return (
-        <>
+        <HomePage>
             <BackgroundContainer>
-                <video data-testid="background-video" autoPlay loop muted>
+                <video autoPlay loop muted data-testid="background-video">
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
 
-            <IconContainer>
-            <Cat>
-                <a href={catUrl} data-testid="cat-link" rel="noopener noreferrer" target="_blank"><img data-testid="cat-icon" src={cat} alt="cat"/></a>
-            </Cat>
-            <Dog>
-                <a  data-testid="dog-link" href={dogUrl} rel="noopener noreferrer" target="_blank"><img data-testid="dog-icon" src={dog} alt="dog"/></a>
-            </Dog>
-            <FortuneCookie>
-                <img src={cookie} alt="fortune cookie" data-testid="fortune-icon" onClick={getAdvice}/>
-            </FortuneCookie>
-            </IconContainer>
+            <SignContainer>
+                    <div><a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a></div>
+                    <div><a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a></div>
+                    <div><img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onClick={getAdvice}/></div>
+            </SignContainer>
 
 
             {
                 isAdvice ?
-                    <Advice data-testid="advice">
+                    <Advice id={"result"}>
                         <Typewriter
                             onInit={(typewriter) => {
 
@@ -58,47 +52,20 @@ const Home = () => {
                                     .start();
                             }}
                         />
+
+
                     </Advice>
                     :
-                    <>
-                    </>
+                    <Advice>
+                    </Advice>
             }
-            </>
+            </HomePage>
     )
 }
 
 
 
 export default Home;
-
-const IconContainer = styled.div`
-
-  margin: 10px;
-  .first {
-    width: 25%;
-    display: inline-block;
-  }
-
-  .second {
-    width: 25%;
-    display: inline-block;
-  }
-
-  .third {
-    width: 25%;
-    display: inline-block;
-  }
-
-  @media screen and (max-width: 500px) {
-
-    .first,
-    .second,
-    .third {
-      width: 70%;
-    }
-  }
-
-`;
 
 const Advice = styled.div`
   border: transparent;
@@ -116,33 +83,45 @@ const Advice = styled.div`
 `;
 
 
+const HomePage = styled.div`
+    width: 100%;
+    margin: auto;
+`;
 
-const FortuneCookie = styled.div`
-  border: 1px solid transparent;
-  max-width: 80px;
-  position: absolute;
-  top: 70vh;
-  right: 3vw;
-  transform: translate(-50%, -50%);
-  //margin: auto;
-  align-items: center;
-  text-align: center;
-  justify-self: start;
-  margin-left: 20px;
+const SignContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  
+  @media (max-width: 800px) {
+    grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: auto auto;
+  }
 
-  img {
-    width: 80px;
-    cursor: pointer;
-    :hover {
-      transition-duration: 0.1s;
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+  grid-gap: 20px;
+  left: 90%;
+  padding:5px 20px 5px 20px;
+  justify-content: space-evenly;
+  div {
+    width: calc(16.6% - 10px);
+    img {
+      width: 75px;
+      height: 75px;
+      cursor: pointer;
+      :hover {
+        transition-duration: 0.1s;
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+      }
     }
   }
   
-
-
 `;
+
 
 const BackgroundContainer = styled.div`
   width: 100%;
@@ -167,55 +146,26 @@ const BackgroundContainer = styled.div`
 
 `;
 
-const Cat = styled.div`
-  border: 1px solid transparent;
-  max-width: 80px;
-  position: absolute;
-  top: 80vh;
-  right: 5vw;
-  transform: translate(-50%, -50%);
-  //margin: auto;
-  align-items: center;
-  text-align: center;
-  justify-self: start;
-  margin-left: 20px;
-
-  
-  img {
-    width: 80px;
-    cursor: pointer;
-    :hover {
-    transition-duration: 0.1s;
-    transform: scale(1.2);
-      filter: drop-shadow(0 0 0.75rem rgb(0, 255, 255));
-
-  }
-    
-  }
-`;
-const Dog = styled.div`
-
-  border: 1px solid transparent;
-  max-width: 80px;
-  position: absolute;
-  top: 80vh;
-  right: 0vw;
-  transform: translate(-50%, -50%);
-  //margin: auto;
-  align-items: center;
-  text-align: center;
-  justify-self: start;
-  margin-left: 20px;
-
-  img {
-    width: 80px;
-    cursor: pointer;
-    :hover {
-      transition-duration: 0.1s;
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 0.75rem rgb(255, 51, 153));
-    }
-  }
-  
-`;
-
+// const FortuneCookie = styled.div`
+//   border: 1px solid transparent;
+//   max-width: 80px;
+//   position: absolute;
+//   top: 70vh;
+//   right: 3vw;
+//   transform: translate(-50%, -50%);
+//   //margin: auto;
+//   align-items: center;
+//   text-align: center;
+//   justify-self: start;
+//   margin-left: 20px;
+//
+//   img {
+//     width: 80px;
+//     cursor: pointer;
+//     :hover {
+//       transition-duration: 0.1s;
+//       transform: scale(1.2);
+//       filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+//     }
+//   }
+// `;
