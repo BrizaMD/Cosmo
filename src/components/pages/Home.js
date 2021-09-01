@@ -28,19 +28,19 @@ const Home = () => {
     return (
         <>
             <BackgroundContainer>
-                <video autoPlay loop muted>
+                <video data-testid="background-video" autoPlay loop muted>
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
 
             <IconContainer>
-            <Cat>
+            <Cat data-testid="cat-icon">
                 <a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a>
             </Cat>
-            <Dog>
+            <Dog data-testid="dog-icon">
                 <a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a>
             </Dog>
-            <FortuneCookie>
+            <FortuneCookie data-testid="fortune-icon">
                 <img src={cookie} alt="fortune cookie" onClick={getAdvice}/>
             </FortuneCookie>
             </IconContainer>
