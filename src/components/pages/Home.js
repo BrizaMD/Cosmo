@@ -18,8 +18,9 @@ const Home = () => {
 
     const getAdvice = async () => {
         await axios.get(adviceUrl)
-            .then(async res => {
-               setAdvice(await res.data.slip.advice);
+            .then(
+                async res => {
+                setAdvice(await res.data.slip.advice);
                 setAdviceState(!isAdvice);
             })
     }
@@ -34,21 +35,21 @@ const Home = () => {
             </BackgroundContainer>
 
             <IconContainer>
-            <Cat data-testid="cat-icon">
-                <a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a>
+            <Cat>
+                <a href={catUrl} data-testid="cat-link" rel="noopener noreferrer" target="_blank"><img data-testid="cat-icon" src={cat} alt="cat"/></a>
             </Cat>
-            <Dog data-testid="dog-icon">
-                <a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a>
+            <Dog>
+                <a  data-testid="dog-link" href={dogUrl} rel="noopener noreferrer" target="_blank"><img data-testid="dog-icon" src={dog} alt="dog"/></a>
             </Dog>
-            <FortuneCookie data-testid="fortune-icon">
-                <img src={cookie} alt="fortune cookie" onClick={getAdvice}/>
+            <FortuneCookie>
+                <img src={cookie} alt="fortune cookie" data-testid="fortune-icon" onClick={getAdvice}/>
             </FortuneCookie>
             </IconContainer>
 
 
             {
                 isAdvice ?
-                    <Advice id={"result"}>
+                    <Advice data-testid="advice">
                         <Typewriter
                             onInit={(typewriter) => {
 
@@ -62,8 +63,8 @@ const Home = () => {
 
                     </Advice>
                     :
-                    <Advice>
-                    </Advice>
+                    <>
+                    </>
             }
             </>
     )
