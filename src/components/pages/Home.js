@@ -24,7 +24,6 @@ const Home = () => {
             })
     }
 
-
     return (
         <>
             <BackgroundContainer>
@@ -58,8 +57,6 @@ const Home = () => {
                                     .start();
                             }}
                         />
-
-
                     </Advice>
                     :
                     <Advice>
