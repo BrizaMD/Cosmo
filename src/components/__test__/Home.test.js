@@ -3,40 +3,31 @@ import {render, fireEvent, cleanup} from '@testing-library/react';
 import Home from '../pages/Home';
 import "@testing-library/jest-dom/extend-expect";
 
-
-global.fetch = jest.fn(() =>{
-
-})
+beforeAll(() =>
+    Object.defineProperty(HTMLMediaElement.prototype, "muted", {
+        set: jest.fn(),
+    })
+);
 
 test('home page icons and bg reders without crashing', () =>{
     const { getByTestId } = render(<Home/>);
     const dog = getByTestId('dog-icon');
     const cat = getByTestId('cat-icon');
     const background = getByTestId('background-video');
+
     expect(dog).toBeTruthy();
     expect(cat).toBeTruthy();
     expect(background).toBeTruthy();
 })
 
-test('click on icon then advice will be on the screen', () =>{
+test('click on icon then advice will be on the screen', async () =>{
     const { getByTestId } = render(<Home/>);
     const cookie = getByTestId('fortune-icon');
 
-
     fireEvent.click(cookie);
-    // in-prorgress
-    // const advice = getByTestId('advice')
-    // expect(advice).toBeInTheDocument();
-})
 
-test('click cat icon then open random cat picture', () =>{
-    const { getByTestId } = render(<Home/>);
-    const cat = getByTestId('cat-link');
-    const catUrl = 'https://cataas.com/cat';
-
-    fireEvent.click(cat);
-    const url = window.location.href;
-    expect(url).toEqual(catUrl);
+    const resultDiv = await (() => getByTestId('advice'));
+    expect(resultDiv).toBeTruthy();
 })
 
 afterEach(cleanup);
