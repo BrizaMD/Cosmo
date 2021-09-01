@@ -35,17 +35,17 @@ const Cocktail = () => {
     return(
         <DrinksContainer>
             <BackgroundContainer>
-                <video autoPlay loop muted>
+                <video autoPlay loop muted data-testid="background">
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
             <ButtonContainer>
-                <h1>If you want a good time or just drink something tasty...</h1>
-                <CocktailButton onClick={()=> handleClick()}>Get a Drink!</CocktailButton>
+                <h1 data-testid='title'>If you want a good time or just drink something tasty...</h1>
+                <CocktailButton data-testid='cocktail-button' onClick={()=> handleClick()}>Get a Drink!</CocktailButton>
             </ButtonContainer>
             {randomDrink.id === '' ?
                 <></> :
-                <DrinkContainer>
+                <DrinkContainer data-testid="result">
                     <div id={'cocktailImage'}>
                         <img alt='cocktail' src={randomDrink.picture} />
                     </div>
