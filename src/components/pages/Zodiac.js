@@ -65,7 +65,7 @@ const Zodiac = () => {
                 {zodiacs.map((sign) => (
                     <div key={sign}>
                         {sign}
-                        <img src={'zodiacs/' + sign + '.jpg'} alt={sign} onClick={() => handleClick(sign)} />
+                        <img src={'zodiacs/' + sign + '.png'} alt={sign} onClick={() => handleClick(sign)} />
                     </div>
                     )
                 )}
@@ -74,7 +74,7 @@ const Zodiac = () => {
             <SignDetailsContainer>
                 <div className={'picture'}><img src={'zodiacs/'+chosenZodiac+'-fancy.jpg'} alt={'missing epic zodiac art'}/></div>
                 <div className={'details'}>Details<br/>
-                    <div>Zodiac Name:{chosenZodiac}</div>
+                    <div>Zodiac Name: {chosenZodiac}</div>
                     <div>Compatibility: {zodiac.compatibility}</div>
                     <div>Mood: {zodiac.mood}</div>
                     <div>Color: {zodiac.color}</div>
@@ -98,6 +98,7 @@ const ZodiacPage = styled.div`
 const SignContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
+
   
   @media (max-width: 800px) {
     grid-template-columns: auto auto auto auto;
@@ -117,6 +118,8 @@ const SignContainer = styled.div`
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 10px;
+    text-transform: capitalize;
+    text-align: center;
     
     img {
       width: 75px;
@@ -132,24 +135,15 @@ const SignContainer = styled.div`
 
 const SignDetailsContainer = styled.div`
   
-  
+  font-size: 25px;
   border: 2px gray solid; //this will help with styling until it is done
-  padding: 30px;
+  padding: 20px;
   margin: auto;
   display: grid;
-  max-width: 50%;
+  max-width: 75%;
   height: auto;
-  //grid-template-columns: repeat(4, auto);
-  // grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-  //grid-template-areas: 
-  //  'picture picture details details'
-  //  'picture picture details details'
-  //  'picture picture details details'
-  //  'description description description description'
-  //  'description description description description';
   grid-template-areas: 
     'picture details'
-    'description description'
     'description description';
   grid-gap: 1rem;
   
@@ -158,6 +152,9 @@ const SignDetailsContainer = styled.div`
   }
   .picture img {
     grid-area: picture;
+    
+    max-height: 300px;
+    width: auto;
     
     max-width: 100%;
     height: auto;
