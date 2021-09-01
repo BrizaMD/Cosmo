@@ -20,7 +20,7 @@ const Home = () => {
         await axios.get(adviceUrl)
             .then(async res => {
                setAdvice(await res.data.slip.advice);
-                setAdviceState(true);
+                setAdviceState(!isAdvice);
             })
     }
 
