@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import axios from "axios";
+import video from "../../static/video/starsky.mp4";
 
 const Zodiac = () => {
     const zodiacs = ['aquarius', 'pisces', 'aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn'];
@@ -55,6 +56,11 @@ const Zodiac = () => {
 
     return(
         <ZodiacPage>
+            <BackgroundContainer>
+                <video autoPlay loop muted>
+                    <source src={video} type="video/mp4"/>
+                </video>
+            </BackgroundContainer>
             <SignContainer className={'signbuttons-container'}>
                 {zodiacs.map((sign) => (
                     <div key={sign}>
@@ -169,6 +175,29 @@ const SignDetailsContainer = styled.div`
     grid-area: description;
     max-width: 100%;
     height: auto;
+  }
+
+`;
+
+const BackgroundContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  opacity: 0.8;
+  z-index: -1;
+  position: relative;
+
+  video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 
 `;

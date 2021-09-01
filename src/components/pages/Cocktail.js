@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import styled from "styled-components";
+import video from "../../static/video/cocktail.mp4";
 
 const Cocktail = () => {
     const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
@@ -33,6 +34,11 @@ const Cocktail = () => {
 
     return(
         <DrinksContainer>
+            <BackgroundContainer>
+                <video autoPlay loop muted>
+                    <source src={video} type="video/mp4"/>
+                </video>
+            </BackgroundContainer>
             <ButtonContainer>
                 <p>If you want a good time or just drink something tasty...</p>
                 <button onClick={()=> handleClick()}>Get a Drink!</button>
@@ -90,5 +96,27 @@ const DrinkContainer = styled.div`
       max-width: 300px;
       height: auto;
     }
-  
+`;
+
+const BackgroundContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  opacity: 0.8;
+  z-index: -1;
+  position: relative;
+
+  video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
 `;
