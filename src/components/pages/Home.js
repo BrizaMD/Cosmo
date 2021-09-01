@@ -146,29 +146,26 @@ const BackgroundContainer = styled.div`
 
 `;
 
-const FortuneCookie = styled.div`
-  border: 1px solid transparent;
-  max-width: 80px;
-  position: absolute;
-  top: 70vh;
-  right: 3vw;
-  transform: translate(-50%, -50%);
-  //margin: auto;
-  align-items: center;
-  text-align: center;
-  justify-self: start;
-  margin-left: 20px;
-
-  img {
-    width: 80px;
-    cursor: pointer;
-    :hover {
-      transition-duration: 0.1s;
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
-    }
-  }
-  
-
-
-`;
+// const FortuneCookie = styled.div`
+//   border: 1px solid transparent;
+//   max-width: 80px;
+//   position: absolute;
+//   top: 70vh;
+//   right: 3vw;
+//   transform: translate(-50%, -50%);
+//   //margin: auto;
+//   align-items: center;
+//   text-align: center;
+//   justify-self: start;
+//   margin-left: 20px;
+//
+//   img {
+//     width: 80px;
+//     cursor: pointer;
+//     :hover {
+//       transition-duration: 0.1s;
+//       transform: scale(1.2);
+//       filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+//     }
+//   }
+// `;
