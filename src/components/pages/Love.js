@@ -47,23 +47,28 @@ const Love = () => {
     return (
         <>
             <BackgroundContainer>
-                <video autoPlay loop muted>
+                <video autoPlay loop muted data-testid="background">
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
             <Card>
                 <img src={cover} alt="daisy"/>
                 <CardBody>
-
                     <FormContainer>
                         <form onSubmit={myChangeHandler}>
                             <label> Love Compatibility</label>
 
                             <input type="text" required value={firstHuman}
-                                   onChange={(e) => setFirstHuman(e.target.value)}/>
+                                   onChange={(e) => setFirstHuman(e.target.value)}
+                                   data-testid="firstPerson"
+                            />
                             <input type="text" required value={secondHuman}
-                                   onChange={(e) => setSecondHuman(e.target.value)}/>
-                            <button onClick={myChangeHandler}>Calculate it!</button>
+                                   onChange={(e) => setSecondHuman(e.target.value)}
+                                   data-testid="secondPerson"
+                            />
+                            <button onClick={myChangeHandler}
+                                    data-testid="calculate"
+                            >Calculate it!</button>
                         </form>
                     </FormContainer>
                 </CardBody>
@@ -72,7 +77,7 @@ const Love = () => {
             {
                 isResultAvailable ?
 
-                    <ResultContainer>
+                    <ResultContainer data-testid="result">
 
                         <div>{result.result}</div>
 
