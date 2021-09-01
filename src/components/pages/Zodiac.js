@@ -98,28 +98,28 @@ const ZodiacPage = styled.div`
 const SignContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
-
   
   @media (max-width: 800px) {
     grid-template-columns: auto auto auto auto;
+    font-size: 18px;
   }
   @media (max-width: 600px) {
     grid-template-columns: auto auto auto;
+    font-size: 16px;
   }
   @media (max-width: 400px) {
     grid-template-columns: auto auto;
+    font-size: 14px;
   }
-  border: 2px gray solid; //this will help with styling until it is done
-  grid-gap: 1rem;
+
+  grid-gap: 20px;
+  padding: 5px 20px 5px 20px;
   justify-content: space-evenly;
   div {
     width: calc(16.6% - 10px);
-    padding: 15px 20px 10px 20px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
     text-transform: capitalize;
     text-align: center;
+    font-size: 20px;
     
     img {
       width: 75px;
@@ -134,9 +134,7 @@ const SignContainer = styled.div`
 `;
 
 const SignDetailsContainer = styled.div`
-  
   font-size: 25px;
-  border: 2px gray solid; //this will help with styling until it is done
   padding: 20px;
   margin: auto;
   display: grid;
@@ -146,16 +144,21 @@ const SignDetailsContainer = styled.div`
     'picture details'
     'description description';
   grid-gap: 1rem;
-  
-  .name {
-    text-transform: capitalize;
+
+  @media (max-width: 800px) {
+    font-size: 19px;
   }
+  @media (max-width: 600px) {
+    font-size: 17px;
+  }
+  @media (max-width: 400px) {
+    font-size: 15px;
+  }
+  
   .picture img {
     grid-area: picture;
-    
     max-height: 300px;
     width: auto;
-    
     max-width: 100%;
     height: auto;
   }
@@ -164,6 +167,7 @@ const SignDetailsContainer = styled.div`
     max-width: 100%;
     height: auto;
     div{
+      text-transform: capitalize;
       max-width: 100%;
       height: auto;
     }
