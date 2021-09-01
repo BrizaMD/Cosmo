@@ -147,6 +147,12 @@ const Card = styled.div`
   margin: 50px auto  0px auto;
   text-align: center;
 
+
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   img {
     width: 15rem;
     height: 11rem;
