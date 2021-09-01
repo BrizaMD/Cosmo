@@ -28,7 +28,7 @@ const Home = () => {
     return (
         <HomePage>
             <BackgroundContainer>
-                <video autoPlay loop muted>
+                <video autoPlay loop muted data-testid="background-video">
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
@@ -36,7 +36,7 @@ const Home = () => {
             <SignContainer>
                     <div><a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a></div>
                     <div><a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a></div>
-                    <div><img src={cookie} alt="fortune cookie" onClick={getAdvice}/></div>
+                    <div><img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onClick={getAdvice}/></div>
             </SignContainer>
 
 
