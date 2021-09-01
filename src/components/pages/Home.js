@@ -33,17 +33,17 @@ const Home = () => {
                 </video>
             </BackgroundContainer>
 
+            <IconContainer>
             <Cat>
                 <a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a>
             </Cat>
             <Dog>
                 <a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a>
             </Dog>
-
-
             <FortuneCookie>
                 <img src={cookie} alt="fortune cookie" onClick={getAdvice}/>
             </FortuneCookie>
+            </IconContainer>
 
 
             {
@@ -63,7 +63,6 @@ const Home = () => {
                     </Advice>
                     :
                     <Advice>
-                            Ask fortune cookie :)
                     </Advice>
             }
             </>
@@ -74,11 +73,40 @@ const Home = () => {
 
 export default Home;
 
+const IconContainer = styled.div`
+
+  margin: 10px;
+  .first {
+    width: 25%;
+    display: inline-block;
+  }
+
+  .second {
+    width: 25%;
+    display: inline-block;
+  }
+
+  .third {
+    width: 25%;
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 500px) {
+
+    .first,
+    .second,
+    .third {
+      width: 70%;
+    }
+  }
+
+`;
+
 const Advice = styled.div`
   border: transparent;
   max-width: 550px;
   position: absolute;
-  top: 35vh;
+  top: 40vh;
   right: 0vw;
   transform: translate(-50%, -50%);
   margin: auto;
@@ -89,28 +117,33 @@ const Advice = styled.div`
   
 `;
 
+
+
 const FortuneCookie = styled.div`
   border: 1px solid transparent;
-  max-width: 550px;
+  max-width: 80px;
   position: absolute;
-  top: 80vh;
-  right: 0vw;
+  top: 70vh;
+  right: 3vw;
   transform: translate(-50%, -50%);
-  //scaleX(-1)
-  margin: auto;
+  //margin: auto;
   align-items: center;
   text-align: center;
+  justify-self: start;
+  margin-left: 20px;
 
   img {
-    width: 100px;
+    width: 80px;
     cursor: pointer;
+    :hover {
+      transition-duration: 0.1s;
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+    }
   }
+  
 
-  h1 {
-    cursor: pointer;
-    color: white;
-    font-size: 20px;
-  }
+
 `;
 
 const BackgroundContainer = styled.div`
@@ -138,35 +171,52 @@ const BackgroundContainer = styled.div`
 
 const Cat = styled.div`
   border: 1px solid transparent;
-  max-width: 550px;
+  max-width: 80px;
   position: absolute;
   top: 80vh;
-  right: 7vw;
+  right: 5vw;
   transform: translate(-50%, -50%);
-  margin: auto;
+  //margin: auto;
   align-items: center;
   text-align: center;
+  justify-self: start;
+  margin-left: 20px;
 
+  
   img {
-    width: 100px;
+    width: 80px;
     cursor: pointer;
+    :hover {
+    transition-duration: 0.1s;
+    transform: scale(1.2);
+      filter: drop-shadow(0 0 0.75rem rgb(0, 255, 255));
+
+  }
+    
   }
 `;
 const Dog = styled.div`
 
   border: 1px solid transparent;
-  max-width: 550px;
+  max-width: 80px;
   position: absolute;
   top: 80vh;
-  right: 14vw;
+  right: 0vw;
   transform: translate(-50%, -50%);
-  margin: auto;
+  //margin: auto;
   align-items: center;
   text-align: center;
+  justify-self: start;
+  margin-left: 20px;
 
   img {
-    width: 100px;
+    width: 80px;
     cursor: pointer;
+    :hover {
+      transition-duration: 0.1s;
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 0.75rem rgb(255, 51, 153));
+    }
   }
   
 `;
