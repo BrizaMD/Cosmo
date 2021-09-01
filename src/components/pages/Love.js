@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import styled from "styled-components";
-import video from '../../static/video/Love - 3191.mp4';
-import cover from '../../static/img/daisies.jpg'
+import video from '../../static/video/Heart - 44010.mp4';
+import cover from '../../static/img/heart.jpg'
 
 
 const Love = () => {
@@ -96,10 +96,9 @@ export default Love;
 
 
 const ResultContainer =styled.div`
-  box-shadow: 0 0 30px 5px;
-  border: 1px solid transparent;
+  border: transparent;
   max-width: 550px;
-  background: white;
+  background: transparent;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -107,6 +106,7 @@ const ResultContainer =styled.div`
   margin: auto; 
   align-items: center;
   text-align: center;
+  font-size: x-large;
 `;
 
 const Percentage = styled.div`
@@ -126,7 +126,7 @@ const Progress = styled.div`
 `;
 
 const Result = styled.div`
-  background-color: #fefefe;
+  background-color: white;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin: 15px;
@@ -139,13 +139,19 @@ const Result = styled.div`
 `;
 
 const Card = styled.div`
-  box-shadow: 0 0 20px 5px;
+  box-shadow: 0 0 30px 1px;
   border-radius: initial;
   min-width: 28rem;
   display: flex;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 50px auto  0px auto;
   text-align: center;
+
+
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   img {
     width: 15rem;
