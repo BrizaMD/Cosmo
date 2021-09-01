@@ -101,15 +101,12 @@ const SignContainer = styled.div`
   
   @media (max-width: 800px) {
     grid-template-columns: auto auto auto auto;
-    font-size: 18px;
   }
   @media (max-width: 600px) {
     grid-template-columns: auto auto auto;
-    font-size: 16px;
   }
   @media (max-width: 400px) {
     grid-template-columns: auto auto;
-    font-size: 14px;
   }
 
   grid-gap: 20px;
