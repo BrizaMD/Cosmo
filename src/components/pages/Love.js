@@ -51,6 +51,7 @@ const Love = () => {
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
+
             <Card>
                 <img src={cover} alt="daisy"/>
                 <CardBody>
@@ -73,6 +74,7 @@ const Love = () => {
                     </FormContainer>
                 </CardBody>
             </Card>
+
 
             {
                 isResultAvailable ?
@@ -99,6 +101,27 @@ const Love = () => {
 export default Love;
 
 
+const MobileContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  
+  @media (max-width: 500px) {
+    grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 300px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 100px) {
+    grid-template-columns: auto auto;
+  }
+
+  grid-gap: 20px;
+  left: 90%;
+  padding:5px 20px 5px 20px;
+  justify-content: space-evenly;
+  
+`;
+
 
 const ResultContainer =styled.div`
   border: transparent;
@@ -117,6 +140,7 @@ const ResultContainer =styled.div`
 const Percentage = styled.div`
   text-align: center;
   color: white;
+  font-size: small;
 `;
 
 const Progress = styled.div`
@@ -136,7 +160,7 @@ const Result = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin: 15px;
   height: 30px;
-  width: 500px;
+  width: 300px;
   max-width: 100%;
   p{
     text-align: center;
@@ -148,7 +172,7 @@ const Card = styled.div`
   border-radius: initial;
   min-width: 28rem;
   display: flex;
-  max-width: 400px;
+  max-width: 200px;
   margin: 50px auto  0px auto;
   text-align: center;
 
@@ -159,7 +183,7 @@ const Card = styled.div`
   transform: translate(-50%, -50%);
 
   img {
-    width: 15rem;
+    width: 11rem;
     height: 11rem;
     object-fit: cover;
     transform: scale(1.1);

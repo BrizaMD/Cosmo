@@ -8,7 +8,7 @@ const Footer = () => {
             <StyledFooter>
                 <SocialMediaSection>
 
-                    <Copyright id='copyright'>© DreamTeam</Copyright>
+
                     <SocialMediaWrap>
                         <SocialMedia>
                             <a
@@ -67,15 +67,16 @@ const Footer = () => {
 
 export default Footer;
 
-
+// <Copyright id='copyright'>© DreamTeam</Copyright>
 const Copyright = styled.div` color: #fff;
   font-size: 15px;
-  justify-self: start;
+  //justify-self: start;
   margin-left: 120px;
   text-decoration: none;
-  display: flex;
+  //display: flex;
   align-items: center;
-  margin-bottom: 16px;`;
+  // margin-bottom: auto;
+`;
 
 const Item = styled.div`
   color: #fff;
@@ -86,7 +87,7 @@ const Item = styled.div`
   
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 46px;
   
   a{
     text-decoration: none;

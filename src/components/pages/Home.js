@@ -18,37 +18,31 @@ const Home = () => {
 
     const getAdvice = async () => {
         await axios.get(adviceUrl)
-            .then(
-                async res => {
-                setAdvice(await res.data.slip.advice);
+            .then(async res => {
+               setAdvice(await res.data.slip.advice);
                 setAdviceState(!isAdvice);
             })
     }
 
+
     return (
-        <>
+        <HomePage>
             <BackgroundContainer>
-                <video data-testid="background-video" autoPlay loop muted>
+                <video autoPlay loop muted>
                     <source src={video} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
 
-            <IconContainer>
-            <Cat>
-                <a href={catUrl} data-testid="cat-link" rel="noopener noreferrer" target="_blank"><img data-testid="cat-icon" src={cat} alt="cat"/></a>
-            </Cat>
-            <Dog>
-                <a  data-testid="dog-link" href={dogUrl} rel="noopener noreferrer" target="_blank"><img data-testid="dog-icon" src={dog} alt="dog"/></a>
-            </Dog>
-            <FortuneCookie>
-                <img src={cookie} alt="fortune cookie" data-testid="fortune-icon" onClick={getAdvice}/>
-            </FortuneCookie>
-            </IconContainer>
+            <SignContainer>
+                    <div><a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a></div>
+                    <div><a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a></div>
+                    <div><img src={cookie} alt="fortune cookie" onClick={getAdvice}/></div>
+            </SignContainer>
 
 
             {
                 isAdvice ?
-                    <Advice data-testid="advice">
+                    <Advice id={"result"}>
                         <Typewriter
                             onInit={(typewriter) => {
 
@@ -58,47 +52,20 @@ const Home = () => {
                                     .start();
                             }}
                         />
+
+
                     </Advice>
                     :
-                    <>
-                    </>
+                    <Advice>
+                    </Advice>
             }
-            </>
+            </HomePage>
     )
 }
 
 
 
 export default Home;
-
-const IconContainer = styled.div`
-
-  margin: 10px;
-  .first {
-    width: 25%;
-    display: inline-block;
-  }
-
-  .second {
-    width: 25%;
-    display: inline-block;
-  }
-
-  .third {
-    width: 25%;
-    display: inline-block;
-  }
-
-  @media screen and (max-width: 500px) {
-
-    .first,
-    .second,
-    .third {
-      width: 70%;
-    }
-  }
-
-`;
 
 const Advice = styled.div`
   border: transparent;
@@ -116,6 +83,44 @@ const Advice = styled.div`
 `;
 
 
+const HomePage = styled.div`
+    width: 100%;
+    margin: auto;
+`;
+
+const SignContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  
+  @media (max-width: 800px) {
+    grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: auto auto;
+  }
+
+  grid-gap: 20px;
+  left: 90%;
+  padding:5px 20px 5px 20px;
+  justify-content: space-evenly;
+  div {
+    width: calc(16.6% - 10px);
+    img {
+      width: 75px;
+      height: 75px;
+      cursor: pointer;
+      :hover {
+        transition-duration: 0.1s;
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+      }
+    }
+  }
+  
+`;
 
 const FortuneCookie = styled.div`
   border: 1px solid transparent;
