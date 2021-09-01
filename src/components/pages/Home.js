@@ -122,6 +122,30 @@ const SignContainer = styled.div`
   
 `;
 
+
+const BackgroundContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  opacity: 0.8;
+  z-index: -1;
+  position: relative;
+
+  video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+`;
+
 const FortuneCookie = styled.div`
   border: 1px solid transparent;
   max-width: 80px;
@@ -148,79 +172,3 @@ const FortuneCookie = styled.div`
 
 
 `;
-
-const BackgroundContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-  object-fit: contain;
-  opacity: 0.8;
-  z-index: -1;
-  position: relative;
-
-  video {
-    object-fit: cover;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-
-`;
-
-const Cat = styled.div`
-  border: 1px solid transparent;
-  max-width: 80px;
-  position: absolute;
-  top: 80vh;
-  right: 5vw;
-  transform: translate(-50%, -50%);
-  //margin: auto;
-  align-items: center;
-  text-align: center;
-  justify-self: start;
-  margin-left: 20px;
-
-  
-  img {
-    width: 80px;
-    cursor: pointer;
-    :hover {
-    transition-duration: 0.1s;
-    transform: scale(1.2);
-      filter: drop-shadow(0 0 0.75rem rgb(0, 255, 255));
-
-  }
-    
-  }
-`;
-const Dog = styled.div`
-
-  border: 1px solid transparent;
-  max-width: 80px;
-  position: absolute;
-  top: 80vh;
-  right: 0vw;
-  transform: translate(-50%, -50%);
-  //margin: auto;
-  align-items: center;
-  text-align: center;
-  justify-self: start;
-  margin-left: 20px;
-
-  img {
-    width: 80px;
-    cursor: pointer;
-    :hover {
-      transition-duration: 0.1s;
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 0.75rem rgb(255, 51, 153));
-    }
-  }
-  
-`;
-

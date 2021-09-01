@@ -68,15 +68,15 @@ const Footer = () => {
 export default Footer;
 
 // <Copyright id='copyright'>© DreamTeam</Copyright>
-const Copyright = styled.div` color: #fff;
-  font-size: 15px;
-  //justify-self: start;
-  margin-left: 120px;
-  text-decoration: none;
-  //display: flex;
-  align-items: center;
-  // margin-bottom: auto;
-`;
+// const Copyright = styled.div` color: #fff;
+//   font-size: 15px;
+//   //justify-self: start;
+//   margin-left: 120px;
+//   text-decoration: none;
+//   //display: flex;
+//   align-items: center;
+//   // margin-bottom: auto;
+// `;
 
 const Item = styled.div`
   color: #fff;
