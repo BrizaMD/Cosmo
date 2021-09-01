@@ -13,7 +13,7 @@ const Cocktail = () => {
         glassType: '',
         instructions_EN: '',
         picture: '',
-        ingredients: null
+        recipeUrl: ''
     })
 
     const handleClick = async function() {
@@ -27,7 +27,7 @@ const Cocktail = () => {
                     glassType: res.data['drinks'][0]['strGlass'],
                     instructions_EN: res.data['drinks'][0]['strInstructions'],
                     picture: res.data['drinks'][0]['strDrinkThumb'],
-                    ingredients: null,
+                    recipeUrl: 'https://www.google.com/search?q=' + res.data['drinks'][0]['strDrink'] + ' cocktail recipe',
                 })
             })
     }
@@ -54,7 +54,8 @@ const Cocktail = () => {
                         <div>Category: {randomDrink.category}</div>
                         <div>Alcohol Content: {randomDrink.alcoholContent}</div>
                         <div>Serve it in: {randomDrink.glassType}</div>
-                        <div>Instructions: {randomDrink.instructions_EN}</div>
+                        <div>Tips: {randomDrink.instructions_EN}</div>
+                        <a href={randomDrink.recipeUrl}>Find the recipe here!</a>
                     </div>
                 </DrinkContainer>
             }
@@ -65,9 +66,11 @@ const Cocktail = () => {
 export default Cocktail;
 
 const DrinksContainer = styled.div`
+  color: white;
+  text-shadow: 2px 2px crimson;
   align-items: center;
   justify-content: center;
-  
+  font-size: 25px;
 `;
 
 const ButtonContainer = styled.div`
@@ -81,28 +84,40 @@ const ButtonContainer = styled.div`
 `;
 
 const CocktailButton = styled.button`
+  background-color: #ffc5c5;
   font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+  :hover{
+    background-color: crimson;
+  }
 `;
 
 const DrinkContainer = styled.div`
-  display: flex;
-  border: 1px solid black; //just to see where it is
-    
-  #details {
-    
-  }
-  
-  #cocktailImage{
-    //float: left;
-  }
 
+  color: white;
+  text-shadow: 2px 2px crimson;
+
+  #cocktailImage {
     img {
       max-width: 300px;
-      height: auto;
     }
+  }
+
+  div {
+    color: white;
+    text-shadow: 2px 2px crimson;
+  }
+
+  a {
+    color: white;
+
+    :hover {
+      color: #ffc5c5;
+    }
+  }
 `;
 
 const BackgroundContainer = styled.div`
