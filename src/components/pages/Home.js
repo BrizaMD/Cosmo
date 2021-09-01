@@ -63,7 +63,6 @@ const Home = () => {
                     </Advice>
                     :
                     <Advice>
-                            Ask fortune cookie :)
                     </Advice>
             }
             </>
@@ -107,7 +106,7 @@ const Advice = styled.div`
   border: transparent;
   max-width: 550px;
   position: absolute;
-  top: 35vh;
+  top: 40vh;
   right: 0vw;
   transform: translate(-50%, -50%);
   margin: auto;
