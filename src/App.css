@@ -41,13 +41,13 @@
 }
 
 .original-cocktail, .original-cocktail div {
-    color: white;
-    text-shadow: 2px 2px crimson;
+    color: rgb(26, 23, 23);
+    text-shadow: white;
+
 }
 
 .og-c-link {
-    color: white;
-    text-shadow: 2px 2px crimson;
+    color:  rgb(26, 23, 23);
 }
 
 .og-c-link:hover {
@@ -55,18 +55,18 @@
 }
 
 .secondary-cocktail {
-    color: #000000;
-    text-shadow: 2px 2px white;
+    color: #F5DEB3;
+    text-shadow: 2px 2px black;
 }
 
 .secondary-cocktail div {
-    color: crimson;
+    color: 	#F5DEB3;
 }
 
 .sn-c-link {
-    color: crimson;
+    color:  rgb(26, 23, 23);
 }
 
 .sn-c-link:hover {
-    color: #ed9bff;
+    color: 	#F5DEB3;
 }
