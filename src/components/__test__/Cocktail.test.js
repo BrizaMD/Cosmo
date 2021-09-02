@@ -13,7 +13,7 @@ beforeAll(() =>
 test('page has background-video, title and button', () =>{
 
     const { getByTestId } = render(<Cocktail/>);
-    const background = getByTestId('background');
+    const background = getByTestId('background-video');
     const btn = getByTestId('cocktail-button');
     const title = getByTestId('title');
 

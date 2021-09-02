@@ -60,12 +60,12 @@ const Zodiac = () => {
 
     return(
         <ZodiacPage className={isOriginal ? 'original-zodiac' : 'secondary-zodiac'}>
-            <BackgroundContainer>
-                <video hidden={isOriginal} autoPlay loop muted data-testid="background-video">
+            <BackgroundContainer data-testid="background-video">
+                <video hidden={isOriginal} autoPlay loop muted>
                     <source src={video} type="video/mp4"/>
                 </video>
 
-                <video hidden={!isOriginal} autoPlay loop muted data-testid="background-video">
+                <video hidden={!isOriginal} autoPlay loop muted>
                     <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>

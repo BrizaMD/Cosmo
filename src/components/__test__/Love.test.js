@@ -12,7 +12,7 @@ beforeAll(() =>
 
 test('page has a video background', () =>{
     const { getByTestId } = render(<Love/>);
-    const background = getByTestId('background');
+    const background = getByTestId('background-video');
     expect(background).toBeTruthy();
 })
 
