@@ -20,10 +20,8 @@ const Home = () => {
         await axios.get(adviceUrl)
             .then(async res => {
                setAdvice(await res.data.slip.advice);
-                setAdviceState();
+                setAdviceState(!isAdvice);
             })
-
-        console.log(advice);
     }
 
 
@@ -50,7 +48,7 @@ const Home = () => {
                             onInit={(typewriter) => {
 
                                 typewriter.typeString(advice)
-                                    .pauseFor(2500)
+                                    .pauseFor(2000)
                                     .deleteAll()
                                     .start();
                             }}
@@ -82,11 +80,11 @@ const Advice = styled.div`
 `;
 
 const SignContainer = styled.div`
-    padding: 20px;
-  position: fixed;
+    padding: 30px;
+    position: fixed;
   img {
-        width: 40px;
-        height: 40px;
+        width: 70px;
+        height: 70px;
         cursor: pointer;
         :hover {
           transition-duration: 0.1s;
@@ -109,6 +107,7 @@ const BackgroundContainer = styled.div`
   align-items: flex-start;
 
   video{  
+    opacity: 0.8;
     z-index: -1;
     position: absolute;
     width: auto;
@@ -138,4 +137,5 @@ const BackgroundContainer = styled.div`
     }
   
 }
+
 `;
