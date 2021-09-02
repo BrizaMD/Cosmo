@@ -23,7 +23,7 @@ const NavBar = () => {
 
     useEffect(() => {
         showButton()
-    }, []) // ha változik a mérete nem ugrik random elő a gomb/tűnik el
+    }, [])
 
 
     window.addEventListener('resize', showButton);
