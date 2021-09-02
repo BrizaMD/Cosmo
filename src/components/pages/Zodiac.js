@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styled from "styled-components";
 import axios from "axios";
-import video from "../../static/video/starsky.mp4";
+import video from "../../static/video/aurora.mp4";
+import video1 from "../../static/video/mandala.mp4";
+import ThemeContext from "../../context/ThemeProvider";
 
 const Zodiac = () => {
     const zodiacs = ['aquarius', 'pisces', 'aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn'];
@@ -17,6 +19,8 @@ const Zodiac = () => {
         lucky_number: '',
         lucky_time: ''
     })
+
+    const { dark } = useContext(ThemeContext);
 
     useEffect((chosenZodiac) => {
         axios.post('https://aztro.sameerkumar.website/?sign=aquarius&day=today')
@@ -57,8 +61,12 @@ const Zodiac = () => {
     return(
         <ZodiacPage>
             <BackgroundContainer>
-                <video autoPlay loop muted data-testid='background'>
+                <video hidden={dark} autoPlay loop muted data-testid="background-video">
                     <source src={video} type="video/mp4"/>
+                </video>
+
+                <video hidden={!dark} autoPlay loop muted data-testid="background-video">
+                    <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
             <SignContainer data-testid='signs' className={'signbuttons-container'}>
