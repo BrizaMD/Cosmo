@@ -131,16 +131,28 @@ const SignContainer = styled.div`
 
 const BackgroundContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  //display: flex;
+  //flex-direction: column;
+  background-size: 100%;
   justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-  object-fit: contain;
+  //align-items: center;
+  //object-fit: contain;
   opacity: 0.8;
   z-index: -1;
-  position: relative;
+  position: absolute;
 
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: auto auto;
+  }
   video {
     object-fit: cover;
     width: 100vw;

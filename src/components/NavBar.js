@@ -31,7 +31,7 @@ const NavBar = () => {
 
         <NavBarStyle className={isOriginal ? 'original-navbar' : 'secondary-navbar'}>
 
-            <NavBarContainer>
+            <NavBarContainer data-testid="navbar">
 
 
                 <div  className='menu-icon' onClick={handleClick}>
@@ -41,7 +41,7 @@ const NavBar = () => {
                 <Link to="/" className='navbar-logo' onClick={closeMobileMenu}>
                     <img className='navbar-logo' src={logo} alt={"logo"}/>
                 </Link>
-            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+            <ul  data-testid="navbar" className={click ? 'nav-menu active' : 'nav-menu'}>
 
                <NavItem>
                    <Link to="/"  onClick={closeMobileMenu}  className='nav-links'>
