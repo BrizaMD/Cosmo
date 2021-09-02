@@ -4,8 +4,8 @@ import cat from '../../static/img/002-cat-lover.png';
 import dog from '../../static/img/005-dog-lover-1.png';
 import axios from "axios";
 import '../../App.css'
-import video from "../../static/video/Pexels Videos 1795797.mp4";
-import video1 from "../../static/video/puppies.mp4";
+import video1 from "../../static/video/Pexels Videos 1795797.mp4";
+import video from "../../static/video/puppies.mp4";
 import styled from "styled-components";
 import Typewriter from 'typewriter-effect';
 import ThemeContext from "../../context/ThemeProvider";
@@ -18,7 +18,7 @@ const Home = () => {
     const [advice, setAdvice] = useState("");
     const [isAdvice, setAdviceState] = useState(false);
 
-    const { dark } = useContext(ThemeContext);
+    const { isOriginal } = useContext(ThemeContext);
 
     const getAdvice = async () => {
         await axios.get(adviceUrl)
@@ -32,11 +32,11 @@ const Home = () => {
     return (
         <HomePage>
             <BackgroundContainer>
-                <video hidden={dark} autoPlay loop muted data-testid="background-video">
+                <video hidden={isOriginal} autoPlay loop muted data-testid="background-video">
                     <source src={video} type="video/mp4"/>
                 </video>
 
-                <video hidden={!dark} autoPlay loop muted data-testid="background-video">
+                <video hidden={!isOriginal} autoPlay loop muted data-testid="background-video">
                     <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>

@@ -1,8 +1,8 @@
 import React, {useContext, useState} from 'react';
 import axios from "axios";
 import styled from "styled-components";
-import video from "../../static/video/cocktail.mp4";
-import video1 from "../../static/video/winebar.mp4";
+import video1 from "../../static/video/cocktail.mp4";
+import video from "../../static/video/winebar.mp4";
 import ThemeContext from "../../context/ThemeProvider";
 
 const Cocktail = () => {
@@ -18,7 +18,7 @@ const Cocktail = () => {
         recipeUrl: ''
     })
 
-    const { dark } = useContext(ThemeContext);
+    const { isOriginal } = useContext(ThemeContext);
 
     const handleClick = async function() {
         await axios.get(url)
@@ -39,11 +39,11 @@ const Cocktail = () => {
     return(
         <DrinksContainer>
             <BackgroundContainer>
-                <video hidden={dark} autoPlay loop muted data-testid="background-video">
+                <video hidden={isOriginal} autoPlay loop muted data-testid="background-video">
                     <source src={video} type="video/mp4"/>
                 </video>
 
-                <video hidden={!dark} autoPlay loop muted data-testid="background-video">
+                <video hidden={!isOriginal} autoPlay loop muted data-testid="background-video">
                     <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>

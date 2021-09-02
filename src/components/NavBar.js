@@ -8,7 +8,7 @@ import ThemeContext from '../context/ThemeProvider';
 const NavBar = () => {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
-    const { dark, toggle } = useContext(ThemeContext);
+    const { isOriginal, toggle } = useContext(ThemeContext);
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
@@ -31,7 +31,7 @@ const NavBar = () => {
 
         <NavBarStyle>
 
-            <NavBarContainer className={dark ? 'original' : 'secondary'}>
+            <NavBarContainer className={isOriginal ? 'original' : 'secondary'}>
 
 
                 <div  className='menu-icon' onClick={handleClick}>

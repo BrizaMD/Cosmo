@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import styled from "styled-components";
-import video from '../../static/video/Heart - 44010.mp4';
-import video1 from "../../static/video/roses.mp4";
+import video1 from '../../static/video/Heart - 44010.mp4';
+import video from "../../static/video/roses.mp4";
 import cover from '../../static/img/heart.jpg'
 import ThemeContext from "../../context/ThemeProvider";
 
@@ -16,7 +16,7 @@ const Love = () => {
         result: ""
     });
 
-    const { dark } = useContext(ThemeContext);
+    const { isOriginal } = useContext(ThemeContext);
 
     const myChangeHandler = (event) => {
         event.preventDefault();
@@ -51,11 +51,11 @@ const Love = () => {
     return (
         <>
             <BackgroundContainer>
-                <video hidden={dark} autoPlay loop muted data-testid="background-video">
+                <video hidden={isOriginal} autoPlay loop muted data-testid="background-video">
                     <source src={video} type="video/mp4"/>
                 </video>
 
-                <video hidden={!dark} autoPlay loop muted data-testid="background-video">
+                <video hidden={!isOriginal} autoPlay loop muted data-testid="background-video">
                     <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
@@ -158,7 +158,7 @@ const Card = styled.div`
   min-width: 28rem;
   display: flex;
   max-width: 200px;
-  margin: 50px auto  0px auto;
+  margin: 50px auto  0 auto;
   text-align: center;
 
 

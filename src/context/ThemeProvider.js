@@ -1,14 +1,14 @@
 import React, { useState, useLayoutEffect } from 'react';
 
 const ThemeContext = React.createContext({
-    dark: false,
+    isOriginal: false,
     toggle: () => {},
 });
 
 export default ThemeContext;
 
 export function ThemeProvider (props) {
-    const [dark, setDark] = useState(false);
+    const [isOriginal, setDark] = useState(false);
 
     useLayoutEffect(() => {
         const lastTheme = window.localStorage.getItem('darkTheme');
@@ -18,19 +18,19 @@ export function ThemeProvider (props) {
         } else {
             setDark(false);
         }
-    }, [dark]);
+    }, [isOriginal]);
 
     const toggle = () => {
         const body = document.getElementsByTagName('body')[0];
         body.style.cssText = 'transition: background .5s ease';
 
-        setDark(!dark);
-        window.localStorage.setItem('darkTheme', !dark);
+        setDark(!isOriginal);
+        window.localStorage.setItem('darkTheme', !isOriginal);
     };
 
     return (
         <ThemeContext.Provider value={{
-            dark,
+            isOriginal,
             toggle,
         }}>
             {props.children}
