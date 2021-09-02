@@ -5,6 +5,7 @@ import dog from '../../static/img/005-dog-lover-1.png';
 import axios from "axios";
 import '../../App.css'
 import video from "../../static/video/Pexels Videos 1795797.mp4";
+import video1 from "../../static/video/starsky.mp4";
 import styled from "styled-components";
 import Typewriter from 'typewriter-effect';
 import ThemeContext from "../../context/ThemeProvider";
@@ -31,8 +32,12 @@ const Home = () => {
     return (
         <HomePage>
             <BackgroundContainer>
-                <video autoPlay loop muted data-testid="background-video">
+                <video hidden={dark} autoPlay loop muted data-testid="background-video">
                     <source src={video} type="video/mp4"/>
+                </video>
+
+                <video hidden={!dark} autoPlay loop muted data-testid="background-video">
+                    <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
 
@@ -41,7 +46,6 @@ const Home = () => {
                     <div><a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a></div>
                     <div><img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onClick={getAdvice}/></div>
             </SignContainer>
-
 
             {
                 isAdvice ?
@@ -55,7 +59,6 @@ const Home = () => {
                                     .start();
                             }}
                         />
-
 
                     </Advice>
                     :
