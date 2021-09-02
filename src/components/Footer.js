@@ -96,7 +96,7 @@ const Item = styled.div`
 
 
 const FooterContainer = styled.div`
-  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);  padding: 1rem 0 0rem 0;
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);  padding: 1rem 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

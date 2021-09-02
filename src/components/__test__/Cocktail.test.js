@@ -31,15 +31,6 @@ test('title text is "If you want a good time or just drink something tasty..."',
 })
 
 
-
-test('title text is "If you want a good time or just drink something tasty..."', ()=>{
-    const { getByTestId } = render(<Cocktail/>);
-    const title = getByTestId('title');
-
-    expect(title.textContent).toBe("If you want a good time or just drink something tasty...");
-})
-
-
 test('button text is "Get a Drink"', ()=>{
     const { getByTestId } = render(<Cocktail/>);
     const btn = getByTestId('cocktail-button');
