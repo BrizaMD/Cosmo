@@ -20,8 +20,10 @@ const Home = () => {
         await axios.get(adviceUrl)
             .then(async res => {
                setAdvice(await res.data.slip.advice);
-                setAdviceState(!isAdvice);
+                setAdviceState();
             })
+
+        console.log(advice);
     }
 
 
@@ -33,9 +35,10 @@ const Home = () => {
                 </video>
 
             <SignContainer>
-                    <div><a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a>
-                        <img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onClick={getAdvice}/>
-                        <a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a></div>
+                    <div><a href={catUrl} target="_blank" rel="noreferrer"><img src={cat} alt="cat"/></a>
+                        <img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onFocus={() => setAdviceState(false)} onClick={getAdvice}/>
+
+                        <a href={dogUrl} target="_blank" rel="noreferrer"><img src={dog} alt="dog"/></a></div>
             </SignContainer>
 
 
@@ -104,17 +107,35 @@ const BackgroundContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-video{  
-  z-index: -1;
-  //opacity: 0.8;
-  position: absolute;
-  width: auto;
-  height: auto;
-  min-width: 100%;
-  min-height: 100%;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+  video{  
+    z-index: -1;
+    position: absolute;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    @media (max-width: 800px) {
+      position: absolute;
+      bottom:0;
+      left:100%;
+
+    }
+    @media (max-width: 600px) {
+      position: absolute;
+      bottom:0;
+      left:100%;
+    }
+    @media (max-width: 400px) {
+      position: absolute;
+      bottom:0;
+      left:100%;
+    }
   
 }
 `;
