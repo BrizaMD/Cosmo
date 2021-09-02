@@ -4,8 +4,8 @@ import cat from '../../static/img/002-cat-lover.png';
 import dog from '../../static/img/005-dog-lover-1.png';
 import axios from "axios";
 import '../../App.css'
-import video1 from "../../static/video/Pexels Videos 1795797.mp4";
-import video from "../../static/video/puppies.mp4";
+import video from "../../static/video/Pexels Videos 1795797.mp4";
+import video1 from "../../static/video/puppies.mp4";
 import styled from "styled-components";
 import Typewriter from 'typewriter-effect';
 import ThemeContext from "../../context/ThemeProvider";

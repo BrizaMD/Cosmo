@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import styled from "styled-components";
-import video1 from '../../static/video/Heart - 44010.mp4';
-import video from "../../static/video/roses.mp4";
+import video from '../../static/video/Heart - 44010.mp4';
+import video1 from "../../static/video/roses.mp4";
 import cover from '../../static/img/heart.jpg'
 import ThemeContext from "../../context/ThemeProvider";
 

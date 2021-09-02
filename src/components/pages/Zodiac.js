@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 import styled from "styled-components";
 import axios from "axios";
-import video1 from "../../static/video/aurora.mp4";
-import video from "../../static/video/mandala.mp4";
+import video from "../../static/video/aurora.mp4";
+import video1 from "../../static/video/mandala.mp4";
 import ThemeContext from "../../context/ThemeProvider";
 
 const Zodiac = () => {
