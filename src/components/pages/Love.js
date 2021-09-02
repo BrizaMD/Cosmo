@@ -14,6 +14,15 @@ const Love = () => {
         result: ""
     });
 
+    const firstInputArea = (e) => {
+        setFirstHuman(e.target.value);
+        setResultAvailable(false);
+    }
+    const secondInputArea = (e) => {
+        setSecondHuman(e.target.value);
+        setResultAvailable(false);
+    }
+
     const myChangeHandler = (event) => {
         event.preventDefault();
         let axios = require("axios").default;
@@ -60,11 +69,11 @@ const Love = () => {
                             <label> Love Compatibility</label>
 
                             <input type="text" required value={firstHuman}
-                                   onChange={(e) => setFirstHuman(e.target.value)}
+                                   onChange={firstInputArea}
                                    data-testid="firstPerson"
                             />
                             <input type="text" required value={secondHuman}
-                                   onChange={(e) => setSecondHuman(e.target.value)}
+                                   onChange={secondInputArea}
                                    data-testid="secondPerson"
                             />
                             <button onClick={myChangeHandler}
