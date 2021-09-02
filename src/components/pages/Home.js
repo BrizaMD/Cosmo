@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import cookie from '../../static/img/003-fortune-cookie-2.png';
 import cat from '../../static/img/002-cat-lover.png';
 import dog from '../../static/img/005-dog-lover-1.png';
@@ -39,13 +39,14 @@ const Home = () => {
                 <video hidden={!isOriginal} autoPlay loop muted>
                     <source src={video1} type="video/mp4"/>
                 </video>
-            </BackgroundContainer>
 
             <SignContainer>
-                    <div><a href={catUrl} target="_blank" rel="noreferrer"><img src={cat} alt="cat"/></a>
+                    <div>
+                        <a href={catUrl} target="_blank" rel="noreferrer"><img src={cat} alt="cat"/></a>
                         <img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onFocus={() => setAdviceState(false)} onClick={getAdvice}/>
 
-                        <a href={dogUrl} target="_blank" rel="noreferrer"><img src={dog} alt="dog"/></a></div>
+                        <a href={dogUrl} target="_blank" rel="noreferrer"><img src={dog} alt="dog"/></a>
+                    </div>
             </SignContainer>
 
 
@@ -65,11 +66,11 @@ const Home = () => {
 
                     </Advice>
                     :
-                    <Advice>
-                    </Advice>
+                    <Advice/>
             }
             </BackgroundContainer>
-            </>
+        </>
+
     )
 }
 
@@ -84,12 +85,6 @@ const Advice = styled.div`
   color: white;
   filter: drop-shadow(0 0 0.75rem rgb(255, 51, 51));
   
-`;
-
-
-const HomePage = styled.div`
-    width: 100%;
-    margin: auto;
 `;
 
 const SignContainer = styled.div`
