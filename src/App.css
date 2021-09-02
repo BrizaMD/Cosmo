@@ -39,3 +39,34 @@
     color: #1cb61c;
     text-shadow: 1px 1px black;
 }
+
+.original-cocktail, .original-cocktail div {
+    color: white;
+    text-shadow: 2px 2px crimson;
+}
+
+.og-c-link {
+    color: white;
+    text-shadow: 2px 2px crimson;
+}
+
+.og-c-link:hover {
+    color: #9bb2ff;
+}
+
+.secondary-cocktail {
+    color: #000000;
+    text-shadow: 2px 2px white;
+}
+
+.secondary-cocktail div {
+    color: crimson;
+}
+
+.sn-c-link {
+    color: crimson;
+}
+
+.sn-c-link:hover {
+    color: #ed9bff;
+}
