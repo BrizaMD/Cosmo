@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import cookie from '../../static/img/003-fortune-cookie-2.png';
 import cat from '../../static/img/002-cat-lover.png';
 import dog from '../../static/img/005-dog-lover-1.png';
@@ -30,7 +30,7 @@ const Home = () => {
 
 
     return (
-        <HomePage>
+        <>
             <BackgroundContainer data-testid="background-video">
                 <video hidden={isOriginal} autoPlay loop muted>
                     <source src={video} type="video/mp4"/>
@@ -42,10 +42,12 @@ const Home = () => {
             </BackgroundContainer>
 
             <SignContainer>
-                    <div><a href={catUrl} rel="noreferrer"><img src={cat} alt="cat"/></a></div>
-                    <div><a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a></div>
-                    <div><img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onClick={getAdvice}/></div>
+                    <div><a href={catUrl} target="_blank" rel="noreferrer"><img src={cat} alt="cat"/></a>
+                        <img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onFocus={() => setAdviceState(false)} onClick={getAdvice}/>
+
+                        <a href={dogUrl} target="_blank" rel="noreferrer"><img src={dog} alt="dog"/></a></div>
             </SignContainer>
+
 
             {
                 isAdvice ?
@@ -54,18 +56,20 @@ const Home = () => {
                             onInit={(typewriter) => {
 
                                 typewriter.typeString(advice)
-                                    .pauseFor(2500)
+                                    .pauseFor(2000)
                                     .deleteAll()
                                     .start();
                             }}
                         />
+
 
                     </Advice>
                     :
                     <Advice>
                     </Advice>
             }
-            </HomePage>
+            </BackgroundContainer>
+            </>
     )
 }
 
@@ -75,16 +79,10 @@ export default Home;
 
 const Advice = styled.div`
   border: transparent;
-  max-width: 550px;
-  position: absolute;
-  top: 40vh;
-  right: 0;
-  transform: translate(-50%, -50%);
-  margin: auto;
-  align-items: center;
-  text-align: center;
-  font-size: 20px;
+  margin-top: 400px;
+  font-size: 30px;
   color: white;
+  filter: drop-shadow(0 0 0.75rem rgb(255, 51, 51));
   
 `;
 
@@ -95,95 +93,62 @@ const HomePage = styled.div`
 `;
 
 const SignContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
-  
-  @media (max-width: 800px) {
-    grid-template-columns: auto auto auto auto;
-  }
-  @media (max-width: 600px) {
-    grid-template-columns: auto auto auto;
-  }
-  @media (max-width: 400px) {
-    grid-template-columns: auto auto;
-  }
-
-  grid-gap: 20px;
-  left: 90%;
-  padding:5px 20px 5px 20px;
-  justify-content: space-evenly;
-  div {
-    width: calc(16.6% - 10px);
-    img {
-      width: 75px;
-      height: 75px;
-      cursor: pointer;
-      :hover {
-        transition-duration: 0.1s;
-        transform: scale(1.2);
-        filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+    padding: 30px;
+    position: fixed;
+  img {
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
+        :hover {
+          transition-duration: 0.1s;
+          transform: scale(1.2);
+          filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
+        }
       }
-    }
-  }
+  
   
 `;
 
 
 const BackgroundContainer = styled.div`
-  width: 100%;
-  //display: flex;
-  //flex-direction: column;
-  background-size: 100%;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
   justify-content: center;
-  //align-items: center;
-  //object-fit: contain;
-  opacity: 0.8;
-  z-index: -1;
-  position: absolute;
+  align-items: flex-start;
 
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  video{  
+    opacity: 0.8;
+    z-index: -1;
+    position: absolute;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  @media (max-width: 1000px) {
-    grid-template-columns: auto auto auto auto;
-  }
-  @media (max-width: 800px) {
-    grid-template-columns: auto auto auto;
-  }
-  @media (max-width: 600px) {
-    grid-template-columns: auto auto;
-  }
-  video {
-    object-fit: cover;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+
+    @media (max-width: 800px) {
+      position: absolute;
+      bottom:0;
+      left:100%;
+
+    }
+    @media (max-width: 600px) {
+      position: absolute;
+      bottom:0;
+      left:100%;
+    }
+    @media (max-width: 400px) {
+      position: absolute;
+      bottom:0;
+      left:100%;
+    }
+  
+}
 
 `;
-
-// const FortuneCookie = styled.div`
-//   border: 1px solid transparent;
-//   max-width: 80px;
-//   position: absolute;
-//   top: 70vh;
-//   right: 3vw;
-//   transform: translate(-50%, -50%);
-//   //margin: auto;
-//   align-items: center;
-//   text-align: center;
-//   justify-self: start;
-//   margin-left: 20px;
-//
-//   img {
-//     width: 80px;
-//     cursor: pointer;
-//     :hover {
-//       transition-duration: 0.1s;
-//       transform: scale(1.2);
-//       filter: drop-shadow(0 0 0.75rem rgb(255, 217, 0));
-//     }
-//   }
-// `;

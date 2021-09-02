@@ -66,7 +66,7 @@ const Love = () => {
                 <video hidden={!isOriginal} autoPlay loop muted>
                     <source src={video1} type="video/mp4"/>
                 </video>
-            </BackgroundContainer>
+
 
             <Card>
                 <img src={cover} alt="daisy"/>
@@ -94,7 +94,7 @@ const Love = () => {
 
             {
                 isResultAvailable ?
-
+<div>
                     <ResultContainer data-testid="result">
 
                         <div>{result.result}</div>
@@ -107,9 +107,11 @@ const Love = () => {
 
 
                     </ResultContainer>
+</div>
                     :
                     <></>
             }
+            </BackgroundContainer>
         </>
     )
 }
@@ -165,8 +167,8 @@ const Card = styled.div`
   border-radius: initial;
   min-width: 28rem;
   display: flex;
-  max-width: 200px;
-  margin: 50px auto  0 auto;
+  max-width: 100px;
+  margin: 20px auto  0 auto;
   text-align: center;
 
 
@@ -190,31 +192,57 @@ const CardBody = styled.div`
 `;
 
 const BackgroundContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-  object-fit: contain;
-  opacity: 0.3;
-  z-index: -1;
   position: relative;
-  background: pink;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
 
-  video {
-    object-fit: cover;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+  video{  
+  z-index: -1;
+  opacity: 0.3;
+  position: absolute;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    
+
+  
+}
+  
+  
+  //width: 100%;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //align-items: center;
+  //box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  //object-fit: contain;
+  //opacity: 0.3;
+  //z-index: -1;
+  //position: relative;
+  //background: pink;
+  //
+  //video {
+  //  object-fit: cover;
+  //  width: 100vw;
+  //  height: 100vh;
+  //  position: fixed;
+  //  top: 0;
+  //  left: 0;
+  //}
 
 `;
 
 const FormContainer = styled.div`
-  max-width: 400px;
+  max-width: 300px;
   margin: 0 auto;
   text-align: center;
 
