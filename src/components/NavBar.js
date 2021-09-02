@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import './Navbar.css';
 import logo from '../static/img/001-nice.png';
+import ThemeContext from '../context/ThemeProvider';
 
 const NavBar = () => {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
+    const { isOriginal, toggle } = useContext(ThemeContext);
 
     const handleClick = () => setClick(!click);
-
     const closeMobileMenu = () => setClick(false);
 
     const showButton = () => {
@@ -18,7 +19,7 @@ const NavBar = () => {
         }else{
             setButton(true);
         }
-    }
+    };
 
     useEffect(() => {
         showButton()
@@ -28,7 +29,7 @@ const NavBar = () => {
     window.addEventListener('resize', showButton);
     return(
 
-        <NavBarStyle>
+        <NavBarStyle className={isOriginal ? 'original-navbar' : 'secondary-navbar'}>
 
             <NavBarContainer data-testid="navbar">
 
@@ -59,7 +60,7 @@ const NavBar = () => {
 
             </ul>
                 <NavItem>
-                    {button && <Button value="Theme Switcher" onClick={closeMobileMenu} >Change Theme</Button>}
+                    {button && <Button className={isOriginal ? 'original' : 'secondary-button'} value="Theme Switcher" onClick={toggle} >Change Theme</Button>}
                 </NavItem>
             </NavBarContainer>
         </NavBarStyle>
@@ -84,7 +85,6 @@ const Button= styled.div`
   border: 1px solid white;
   :hover{
     transition: all 0.3s ease-out;
-    background: #fff;
     color: #242424;
   }
 `;
@@ -100,7 +100,6 @@ const NavBarContainer = styled.div`
 `;
 
 const NavBarStyle = styled.div`
-  background: linear-gradient(90deg, rgb(255,255,255) 0%, rgb(26, 23, 23) 100%);
   //background:#d585d2;
   height: 80px;
   display: flex;

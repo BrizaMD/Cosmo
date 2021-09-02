@@ -12,7 +12,7 @@ beforeAll(() =>
 
 test('page has 12 icons, background -video', () =>{
     const { getByTestId } = render(<Zodiac/>);
-    const background = getByTestId('background');
+    const background = getByTestId('background-video');
     const signs = getByTestId('signs');
 
     expect(background).toBeTruthy();

@@ -1,7 +1,9 @@
-import React, { useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styled from "styled-components";
-import video from '../../static/video/Heart - 44010.mp4';
+import video1 from '../../static/video/Heart - 44010.mp4';
+import video from "../../static/video/roses.mp4";
 import cover from '../../static/img/heart.jpg'
+import ThemeContext from "../../context/ThemeProvider";
 
 
 const Love = () => {
@@ -13,6 +15,8 @@ const Love = () => {
         percentage: "",
         result: ""
     });
+
+    const { isOriginal } = useContext(ThemeContext);
 
     const firstInputArea = (e) => {
         setFirstHuman(e.target.value);
@@ -55,9 +59,12 @@ const Love = () => {
 
     return (
         <>
-            <BackgroundContainer>
-                <video autoPlay loop muted data-testid="background">
+            <BackgroundContainer data-testid="background-video">
+                <video hidden={isOriginal} autoPlay loop muted>
                     <source src={video} type="video/mp4"/>
+                </video>
+                <video hidden={!isOriginal} autoPlay loop muted>
+                    <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
 

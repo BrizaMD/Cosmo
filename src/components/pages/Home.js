@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import cookie from '../../static/img/003-fortune-cookie-2.png';
 import cat from '../../static/img/002-cat-lover.png';
 import dog from '../../static/img/005-dog-lover-1.png';
 import axios from "axios";
 import '../../App.css'
-import video from "../../static/video/Pexels Videos 1795797.mp4";
+import video1 from "../../static/video/Pexels Videos 1795797.mp4";
+import video from "../../static/video/puppies.mp4";
 import styled from "styled-components";
 import Typewriter from 'typewriter-effect';
+import ThemeContext from "../../context/ThemeProvider";
 
 
 const Home = () => {
@@ -15,6 +17,8 @@ const Home = () => {
     const dogUrl = 'https://random.dog/';
     const [advice, setAdvice] = useState("");
     const [isAdvice, setAdviceState] = useState(false);
+
+    const { isOriginal } = useContext(ThemeContext);
 
     const getAdvice = async () => {
         await axios.get(adviceUrl)
@@ -27,9 +31,13 @@ const Home = () => {
 
     return (
         <HomePage>
-            <BackgroundContainer>
-                <video autoPlay loop muted data-testid="background-video">
+            <BackgroundContainer data-testid="background-video">
+                <video hidden={isOriginal} autoPlay loop muted>
                     <source src={video} type="video/mp4"/>
+                </video>
+
+                <video hidden={!isOriginal} autoPlay loop muted>
+                    <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
 
@@ -38,7 +46,6 @@ const Home = () => {
                     <div><a href={dogUrl} rel="noreferrer"><img src={dog} alt="dog"/></a></div>
                     <div><img data-testid="fortune-icon" src={cookie} alt="fortune cookie" onClick={getAdvice}/></div>
             </SignContainer>
-
 
             {
                 isAdvice ?
@@ -52,7 +59,6 @@ const Home = () => {
                                     .start();
                             }}
                         />
-
 
                     </Advice>
                     :
@@ -72,7 +78,7 @@ const Advice = styled.div`
   max-width: 550px;
   position: absolute;
   top: 40vh;
-  right: 0vw;
+  right: 0;
   transform: translate(-50%, -50%);
   margin: auto;
   align-items: center;

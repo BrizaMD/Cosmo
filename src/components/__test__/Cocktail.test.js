@@ -13,7 +13,7 @@ beforeAll(() =>
 test('page has background-video, title and button', () =>{
 
     const { getByTestId } = render(<Cocktail/>);
-    const background = getByTestId('background');
+    const background = getByTestId('background-video');
     const btn = getByTestId('cocktail-button');
     const title = getByTestId('title');
 
@@ -21,15 +21,6 @@ test('page has background-video, title and button', () =>{
     expect(btn).toBeTruthy();
     expect(title).toBeTruthy();
 })
-
-
-test('title text is "If you want a good time or just drink something tasty..."', ()=>{
-    const { getByTestId } = render(<Cocktail/>);
-    const title = getByTestId('title');
-
-    expect(title.textContent).toBe("If you want a good time or just drink something tasty...");
-})
-
 
 
 test('title text is "If you want a good time or just drink something tasty..."', ()=>{

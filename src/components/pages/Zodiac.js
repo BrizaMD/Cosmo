@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styled from "styled-components";
 import axios from "axios";
-import video from "../../static/video/starsky.mp4";
+import video1 from "../../static/video/aurora.mp4";
+import video from "../../static/video/mandala.mp4";
+import ThemeContext from "../../context/ThemeProvider";
 
 const Zodiac = () => {
     const zodiacs = ['aquarius', 'pisces', 'aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn'];
@@ -17,6 +19,8 @@ const Zodiac = () => {
         lucky_number: '',
         lucky_time: ''
     })
+
+    const { isOriginal } = useContext(ThemeContext);
 
     useEffect((chosenZodiac) => {
         axios.post('https://aztro.sameerkumar.website/?sign=aquarius&day=today')
@@ -55,10 +59,14 @@ const Zodiac = () => {
     }
 
     return(
-        <ZodiacPage>
-            <BackgroundContainer>
-                <video autoPlay loop muted data-testid='background'>
+        <ZodiacPage className={isOriginal ? 'original-zodiac' : 'secondary-zodiac'}>
+            <BackgroundContainer data-testid="background-video">
+                <video hidden={isOriginal} autoPlay loop muted>
                     <source src={video} type="video/mp4"/>
+                </video>
+
+                <video hidden={!isOriginal} autoPlay loop muted>
+                    <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
             <SignContainer data-testid='signs' className={'signbuttons-container'}>
@@ -94,8 +102,8 @@ const Zodiac = () => {
 export default Zodiac;
 
 const ZodiacPage = styled.div`
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 `;
 
 const SignContainer = styled.div`
@@ -186,9 +194,9 @@ const BackgroundContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.1);
   object-fit: contain;
-  opacity: 0.8;
+  opacity: 0.9;
   z-index: -1;
   position: relative;
 
