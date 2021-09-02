@@ -74,6 +74,8 @@ const Cocktail = () => {
 
 export default Cocktail;
 
+
+
 const DrinksContainer = styled.div`
 
   align-items: center;
@@ -108,7 +110,8 @@ const CocktailButton = styled.button`
   border: 1px solid #242424;
   :hover{
     transition: all 0.3s ease-out;
-    color: white;
+    color: black;
+    background: white;
   }
 `;
 
@@ -121,6 +124,9 @@ const DrinkContainer = styled.div`
       max-width: 200px;
       border:2px solid transparent;
       box-shadow:0 0 8px 8px transparent inset;
+      border-top: 5px solid black;
+      border-bottom: 5px solid black;
+    
     }
   }
   a{
