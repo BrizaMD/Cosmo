@@ -29,3 +29,13 @@
 .secondary-button {
     color: black !important;
 }
+
+.original-zodiac {
+    color: silver;
+    text-shadow: 1px 1px black;
+}
+
+.secondary-zodiac {
+    color: #1cb61c;
+    text-shadow: 1px 1px black;
+}

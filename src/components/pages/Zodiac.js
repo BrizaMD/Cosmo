@@ -59,7 +59,7 @@ const Zodiac = () => {
     }
 
     return(
-        <ZodiacPage>
+        <ZodiacPage className={isOriginal ? 'original-zodiac' : 'secondary-zodiac'}>
             <BackgroundContainer>
                 <video hidden={isOriginal} autoPlay loop muted data-testid="background-video">
                     <source src={video} type="video/mp4"/>
@@ -102,8 +102,8 @@ const Zodiac = () => {
 export default Zodiac;
 
 const ZodiacPage = styled.div`
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 `;
 
 const SignContainer = styled.div`
@@ -196,7 +196,7 @@ const BackgroundContainer = styled.div`
   align-items: center;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.1);
   object-fit: contain;
-  opacity: 0.8;
+  opacity: 0.9;
   z-index: -1;
   position: relative;
 
