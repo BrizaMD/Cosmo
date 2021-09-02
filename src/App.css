@@ -55,16 +55,18 @@
 }
 
 .secondary-cocktail {
-    color: #F5DEB3;
-    text-shadow: 2px 2px black;
+    color: #800000;
+    /*text-shadow: 2px 2px black;*/
 }
 
 .secondary-cocktail div {
-    color: 	#F5DEB3;
+    color: #800000;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .sn-c-link {
-    color:  rgb(26, 23, 23);
+    color:  white;
 }
 
 .sn-c-link:hover {

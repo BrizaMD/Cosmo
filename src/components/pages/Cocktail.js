@@ -47,12 +47,9 @@ const Cocktail = () => {
                     <source src={video1} type="video/mp4"/>
                 </video>
             </BackgroundContainer>
-
-                <h1 data-testid='title'>If you want a good time or just drink something tasty...</h1>
-
-
+            <h1 data-testid='title'>If you want a good time or just drink something tasty...</h1>
                 <ButtonContainer>
-                <CocktailButton data-testid='cocktail-button' onClick={()=> handleClick()}>Get a Drink!</CocktailButton>
+                    <CocktailButton data-testid='cocktail-button' onClick={()=> handleClick()}>Get a Drink!</CocktailButton>
             </ButtonContainer>
             {randomDrink.id === '' ?
                 <></> :
@@ -66,7 +63,7 @@ const Cocktail = () => {
                         <div>Alcohol Content: {randomDrink.alcoholContent}</div>
                         <div>Serve it in: {randomDrink.glassType}</div>
                         <div>Tips: {randomDrink.instructions_EN}</div>
-                        <br/>
+
                         <a className={isOriginal ? 'og-c-link' : 'sn-c-link'} href={randomDrink.recipeUrl}>Find the recipe here!</a>
                     </div>
                 </DrinkContainer>
@@ -82,28 +79,36 @@ const DrinksContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 15px;
+  h1{
+    text-align: center;
+  }
 `;
 
 const ButtonContainer = styled.div`
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   margin: auto;
   display: flex;
   justify-content: center;
   vertical-align: middle;
   align-items: center;
   text-align: center;
+  
+
 `;
 
 const CocktailButton = styled.button`
-  background-color: #ffc5c5;
-  font-family: 'PT Sans', sans-serif;
-  font-size: 20px;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
+  padding: 8px 20px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #242424;
+  transition: all 0.3s ease-out;
+  border: 1px solid #242424;
   :hover{
-    background-color: crimson;
+    transition: all 0.3s ease-out;
+    color: white;
   }
 `;
 
