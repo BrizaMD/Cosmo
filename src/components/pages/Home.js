@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import cookie from '../../static/img/003-fortune-cookie-2.png';
 import cat from '../../static/img/002-cat-lover.png';
 import dog from '../../static/img/005-dog-lover-1.png';
@@ -7,6 +7,7 @@ import '../../App.css'
 import video from "../../static/video/Pexels Videos 1795797.mp4";
 import styled from "styled-components";
 import Typewriter from 'typewriter-effect';
+import ThemeContext from "../../context/ThemeProvider";
 
 
 const Home = () => {
@@ -15,6 +16,8 @@ const Home = () => {
     const dogUrl = 'https://random.dog/';
     const [advice, setAdvice] = useState("");
     const [isAdvice, setAdviceState] = useState(false);
+
+    const { dark } = useContext(ThemeContext);
 
     const getAdvice = async () => {
         await axios.get(adviceUrl)
