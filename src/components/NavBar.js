@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import './Navbar.css';
 import logo from '../static/img/001-nice.png';
+import ThemeContext from '../context/ThemeProvider';
 
 const NavBar = () => {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
+    const { dark, toggle } = useContext(ThemeContext);
 
     const handleClick = () => setClick(!click);
-
     const closeMobileMenu = () => setClick(false);
 
     const showButton = () => {
@@ -18,7 +19,7 @@ const NavBar = () => {
         }else{
             setButton(true);
         }
-    }
+    };
 
     useEffect(() => {
         showButton()
@@ -30,7 +31,7 @@ const NavBar = () => {
 
         <NavBarStyle>
 
-            <NavBarContainer>
+            <NavBarContainer className={dark ? 'original' : 'secondary'}>
 
 
                 <div  className='menu-icon' onClick={handleClick}>
@@ -59,7 +60,7 @@ const NavBar = () => {
 
             </ul>
                 <NavItem>
-                    {button && <Button value="Theme Switcher" onClick={closeMobileMenu} >Change Theme</Button>}
+                    {button && <Button value="Theme Switcher" onClick={toggle} >Change Theme</Button>}
                 </NavItem>
             </NavBarContainer>
         </NavBarStyle>
