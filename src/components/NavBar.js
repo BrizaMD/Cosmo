@@ -31,7 +31,7 @@ const NavBar = () => {
 
         <NavBarStyle>
 
-            <NavBarContainer className={isOriginal ? 'original' : 'secondary'}>
+            <NavBarContainer className={isOriginal ? 'original' : 'secondary-navbar'}>
 
 
                 <div  className='menu-icon' onClick={handleClick}>
@@ -60,7 +60,7 @@ const NavBar = () => {
 
             </ul>
                 <NavItem>
-                    {button && <Button value="Theme Switcher" onClick={toggle} >Change Theme</Button>}
+                    {button && <Button className={isOriginal ? 'original' : 'secondary-button'} value="Theme Switcher" onClick={toggle} >Change Theme</Button>}
                 </NavItem>
             </NavBarContainer>
         </NavBarStyle>
@@ -83,10 +83,10 @@ const Button= styled.div`
   color: #fff;
   transition: all 0.3s ease-out;
   border: 1px solid white;
-  :hover{
+
+  :hover {
     transition: all 0.3s ease-out;
-    background: #fff;
-    color: #242424;
+    color: #797979;
   }
 `;
 
