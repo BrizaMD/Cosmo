@@ -194,7 +194,7 @@ const BackgroundContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.1);
   object-fit: contain;
   opacity: 0.8;
   z-index: -1;
