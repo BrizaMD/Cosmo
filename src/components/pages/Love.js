@@ -159,7 +159,7 @@ const Card = styled.div`
   min-width: 28rem;
   display: flex;
   max-width: 200px;
-  margin: 50px auto  0px auto;
+  margin: 50px auto  0 auto;
   text-align: center;
 
 
