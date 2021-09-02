@@ -29,9 +29,9 @@ const NavBar = () => {
     window.addEventListener('resize', showButton);
     return(
 
-        <NavBarStyle>
+        <NavBarStyle className={isOriginal ? 'original-navbar' : 'secondary-navbar'}>
 
-            <NavBarContainer className={isOriginal ? 'original' : 'secondary-navbar'}>
+            <NavBarContainer>
 
 
                 <div  className='menu-icon' onClick={handleClick}>
@@ -83,10 +83,9 @@ const Button= styled.div`
   color: #fff;
   transition: all 0.3s ease-out;
   border: 1px solid white;
-
-  :hover {
+  :hover{
     transition: all 0.3s ease-out;
-    color: #797979;
+    color: #242424;
   }
 `;
 
@@ -101,7 +100,6 @@ const NavBarContainer = styled.div`
 `;
 
 const NavBarStyle = styled.div`
-  background: linear-gradient(90deg, rgb(255,255,255) 0%, rgb(26, 23, 23) 100%);
   //background:#d585d2;
   height: 80px;
   display: flex;
