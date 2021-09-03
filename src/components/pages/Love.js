@@ -37,7 +37,8 @@ const Love = () => {
             params: {fname: firstHuman, sname: secondHuman},
             headers: {
                 'x-rapidapi-host': 'love-calculator.p.rapidapi.com',
-                'x-rapidapi-key': '160cd4edfbmshb786acd93bda484p1a7f39jsn4b3f394c969f'
+                //'x-rapidapi-key': '160cd4edfbmshb786acd93bda484p1a7f39jsn4b3f394c969f' old
+                'x-rapidapi-key': 'd6a5883a6amsh9ad808423840876p19669cjsn346e14e9924f'
             }
         };
 
